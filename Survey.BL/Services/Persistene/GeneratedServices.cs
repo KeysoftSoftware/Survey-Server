@@ -100,5 +100,14 @@ namespace Survey.BL.Services.Persistent
     }
     #endregion
 
+    #region OrgStruct
+    public partial class OrgStructService : KF.Services.EntityService<OrgStruct>
+    {
+        public OrgStructService(UserSession us) : base(us)
+        {
+        }
+    }
+    #endregion
+
 }
 

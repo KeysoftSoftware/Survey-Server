@@ -703,5 +703,77 @@ namespace Survey.Model
 
     #endregion QType
 
+    #region OrgStruct
+    public partial class OrgStruct : ModelBase
+    {
+
+        #region Constructor
+        public OrgStruct(Session prmSession) : base(prmSession)
+        {
+        }
+        #endregion
+
+        #region Properties
+
+        #region name
+        private string _name;
+        public string name
+        {
+            get { return _name; }
+            set { SetValue<string>("name", ref _name, value); }
+        }
+        #endregion
+
+        #region description
+        private string _description;
+        public string description
+        {
+            get { return _description; }
+            set { SetValue<string>("description", ref _description, value); }
+        }
+        #endregion
+
+        #region parentOrgStruct
+        private OrgStruct _parentOrgStruct;
+        public OrgStruct parentOrgStruct
+        {
+            get { return _parentOrgStruct; }
+            set { SetValue<OrgStruct>("parentOrgStruct", ref _parentOrgStruct, value); }
+        }
+        #endregion
+
+        #region levelNo
+        private int _levelNo;
+        public int levelNo
+        {
+            get { return _levelNo; }
+            set { SetValue<int>("levelNo", ref _levelNo, value); }
+        }
+        #endregion
+
+        #region levelType
+        private LOV _levelType;
+        public LOV levelType
+        {
+            get { return _levelType; }
+            set { SetValue<LOV>("levelType", ref _levelType, value); }
+        }
+        #endregion
+
+        #region parentId
+        private int _parentId;
+        public int parentId
+        {
+            get { return _parentId; }
+            set { SetValue<int>("parentId", ref _parentId, value); }
+        }
+        #endregion
+
+        #endregion
+
+    }
+
+    #endregion OrgStruct
+
 }
 
