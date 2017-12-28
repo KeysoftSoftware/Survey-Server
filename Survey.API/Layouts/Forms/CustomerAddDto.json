@@ -1,0 +1,243 @@
+﻿{
+  "colCount": 12,
+  "labelLocation": "left",
+  "items": [
+    {
+      "itemType": "group",
+      "colSpan": 6,
+      "colCount": 2,
+      "caption": "company.companyDetails",
+      "items": [
+        {
+          "itemType": "simple",
+          "dataField": "clientNo",
+          "editorType": "dxNumberBox",
+          "colSpan": 1,
+          "label": {
+            "text": "company.clientNo"
+          },
+          "editorOptions": {
+            "width": "100%"
+          },
+          "isRequired": true,
+          "validationRules": [
+            {
+              "type": "required",
+              "message": "E-mail is required"
+            }
+          ]
+        },
+
+        {
+          "itemType": "simple",
+          "editorType": "dxNumberBox",
+          "dataField": "compNumber",
+          "colSpan": 1,
+          "label": { "text": "company.companyNumber" },
+          "isrequired": true,
+          "validationrules": [
+            {
+              "type": "required",
+              "message": "e-mail is required"
+            },
+            {
+              "type": "custom",
+              "message": "E-mail is required"
+            }
+          ]
+        },
+        {
+          "itemType": "simple",
+          "dataField": "compName",
+          "label": { "text": "company.companyName" },
+          "colSpan": 2,
+          "isRequired": true,
+          //"useServerOnChange": true,
+          "validationRules": [
+            {
+              "type": "required",
+              "message": "E-mail is required"
+            },
+            {
+              "type": "custom",
+              "message": "E-mail is required"
+            }
+          ]
+        },
+        {
+          "itemType": "simple",
+          "editorType": "dxSelectBox",
+          "dataField": "compTypeId",
+          "colSpan": 1,
+          "label": { "text": "company.companyType" },
+          "isRequired": true,
+          "editorOptions": {
+            "dataSourceName": "GetLovs.COMPANY_TYPE",
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          },
+          "validationRules": [
+            {
+              "type": "required",
+              "message": "E-mail is required"
+            }
+          ]
+        },
+        {
+          "itemType": "simple",
+          "editorType": "dxSelectBox",
+          "dataField": "compStatusId",
+          "colSpan": 1,
+          "label": { "text": "company.companyStatus" },
+          "editorOptions": {
+            "dataSourceName": "GetLovs.COMPANY_STATUS",
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          },
+          "isRequired": true,
+          "validationRules": [
+            {
+              "type": "required",
+              "message": "E-mail is required"
+            }
+          ]
+        },
+        {
+          "itemType": "simple",
+          "editorType": "dxNumberBox",
+          "dataField": "maxNoOfSubCompanies",
+          "colSpan": 1,
+          "label": {
+            "text": "company.noOfSubCompanies"
+          }
+        },
+        {
+          "itemType": "simple",
+          "editorType": "dxNumberBox",
+          "dataField": "appNoOfUsers",
+          "colSpan": 1,
+          "label": { "text": "company.appNoOfUsers" }
+        },
+
+
+
+        {
+          "itemType": "simple",
+          "editorType": "dxNumberBox",
+          "dataField": "maxNoOfEmployees",
+          "colSpan": 1,
+          "label": { "text": "company.maxNoOfEmployees" }
+        },
+        {
+          "itemType": "simple",
+          "editorType": "dxNumberBox",
+          "dataField": "maxNoOfEmployeesEntry",
+          "colSpan": 1,
+          "label": { "text": "company.licensesNoEmployeesEntry" }
+        },
+        {
+          "itemType": "simple",
+          "dataField": "contactPersonName",
+          "colSpan": 2,
+          "label": { "text": "company.contactPersonName" }
+        },
+        {
+          "itemType": "simple",
+          "dataField": "contactPersonPhone",
+          "colSpan": 1,
+          "label": { "text": "company.contactPersonPhone" }
+        },
+        {
+          "itemType": "simple",
+          "dataField": "contactPersonEmail",
+          "colSpan": 1,
+          "label": { "text": "company.contactPersonEmail" },
+          "validationrules": [
+            {
+              "type": "email",
+              "message": "Email is invalid"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "itemType": "group",
+      "colSpan": 1
+    },
+    {
+      "itemType": "group",
+      "colSpan": 5,
+      "colCount": 2,
+      "caption": "user.userDetails",
+      "items": [
+        {
+          "itemType": "simple",
+          "dataField": "adminUserName",
+          "colSpan": 2,
+          "label": { "text": "user.userName" },
+          "isRequired": true,
+          "validationRules": [
+            {
+              "type": "required",
+              "message": "E-mail is required"
+            }
+          ]
+        },
+        {
+          "itemType": "empty",
+          "colSpan": 2
+        },
+        {
+          "itemType": "simple",
+          "dataField": "adminUserId",
+          "colSpan": 2,
+          "label": { "text": "user.userId" },
+          "isRequired": true,
+          "validationRules": [
+            {
+              "type": "required",
+              "message": "E-mail is required"
+            }
+          ]
+        },
+        {
+          "itemType": "empty",
+          "colSpan": 2
+        },
+        {
+          "itemType": "simple",
+          "dataField": "adminPW",
+          "colSpan": 2,
+          "label": { "text": "user.userPW" },
+          "isRequired": true,
+          "editorOptions": { "mode": "password" },
+          "validationRules": [
+            {
+              "type": "required",
+              "message": "E-mail is required"
+            }
+          ]
+        },
+        {
+          "itemType": "empty",
+          "colSpan": 2
+        },
+        {
+          "itemType": "simple",
+          "dataField": "adminVerifyPW",
+          "colSpan": 2,
+          "label": { "text": "user.userVerifyPW" },
+          "isRequired": true,
+          "editorOptions": { "mode": "password" },
+          "validationRules": [
+            {
+              "type": "required",
+              "message": "E-mail is required"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

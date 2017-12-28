@@ -1,0 +1,170 @@
+﻿{
+  "colCount": 4,
+  "rtlEnabled": true,
+  "items": [
+    {
+      "itemType": "group",
+      "colSpan": 2,
+      "colCount": 2,
+      "caption": "employee.employeeDetails",
+      "items": [
+        {
+          "itemType": "simple",
+          "dataField": "idNo",
+          "colSpan": 1,
+          "label": { "text": "employee.idNo" }
+        },
+        {
+          "itemType": "simple",
+          "editorType": "dxCheckBox",
+          "dataField": "isIdNoValid",
+          "colSpan": 1,
+          "label": { "text": "employee.isIdValid" }
+        },
+        {
+          "itemtype": "simple",
+          "datafield": "firstName",
+          "colspan": 1,
+          "label": { "text": "employee.firstName" },
+          "isRequired": true,
+          "validationrules": [
+            {
+              "type": "required",
+              "message": "e-mail is required"
+            }
+          ]
+        },
+        {
+          "itemtype": "simple",
+          "datafield": "lastName",
+          "colspan": 1,
+          "label": { "text": "employee.lastName" },
+          "isRequired": true,
+          "validationrules": [
+            {
+              "type": "required",
+              "message": "e-mail is required"
+            }
+          ]
+        },
+        {
+          "itemType": "simple",
+          "editorType": "dxDateBox",
+          "dataField": "dob",
+          "colSpan": 1,
+          "label": { "text": "employee.dateOfBirth" },
+          "isRequired": true,
+          "validationRules": [
+            {
+              "type": "required",
+              "message": "E-mail is required"
+            },
+            {
+              "type": "custom",
+              "message": "E-mail is required"
+            }
+          ]
+        },
+        {
+          "itemType": "simple",
+          "editorType": "dxSelectBox",
+          "dataField": "genderId",
+          "colSpan": 1,
+          "label": { "text": "employee.gender" },
+          "editorOptions": {
+            "dataSourceName": "GetLovs.GENDER",
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          },
+          "isRequired": true,
+          "validationRules": [
+            {
+              "type": "required",
+              "message": "E-mail is required"
+            }
+          ]
+        },
+        {
+          "itemtype": "simple",
+          "datafield": "fatherName",
+          "colspan": 1,
+          "label": { "text": "employee.fatherName" }
+        },
+        {
+          "itemtype": "simple",
+          "datafield": "motherName",
+          "colspan": 1,
+          "label": { "text": "employee.motherName" }
+        },
+        {
+          "itemType": "simple",
+          "dataField": "phoneNo",
+          "colSpan": 1,
+          "label": { "text": "employeeContact.phoneNo1" }
+        },
+        {
+          "itemType": "simple",
+          "dataField": "mobile",
+          "colSpan": 1,
+          "label": { "text": "employeeContact.phoneNo2" }
+        }
+      ]
+    },
+    {
+      "itemType": "group",
+      "colSpan": 2,
+      "colCount": 2,
+      "caption": "employeeSpouse.spouse",
+      "items": [
+        {
+          "itemType": "simple",
+          "dataField": "partnerIdNo",
+          "colSpan": 1,
+          "label": { "text": "employeeSpouse.idNoSpouse" }
+        },
+        {
+          "itemType": "simple",
+          "dataField": "partnerFirstName",
+          "colSpan": 1,
+          "label": { "text": "employeeSpouse.firstNameSpouse" }
+        },
+        {
+          "itemType": "simple",
+          "dataField": "partnerLastName",
+          "colSpan": 1,
+          "label": { "text": "employeeSpouse.lastNameSpouse" }
+        },
+        {
+          "itemType": "simple",
+          "editorType": "dxDateBox",
+          "dataField": "dob",
+          "colSpan": 1,
+          "label": { "text": "employeeSpouse.dobSpouse" },
+          "isRequired": true,
+          "validationRules": [
+            {
+              "type": "required",
+              "message": "E-mail is required"
+            },
+            {
+              "type": "custom",
+              "message": "E-mail is required"
+            }
+          ]
+        },
+        {
+          "itemType": "simple",
+          "dataField": "partnerPhoneNo",
+          "colSpan": 1,
+          "label": { "text": "employeeContact.phoneNo1" }
+        },
+        {
+          "itemType": "simple",
+          "dataField": "partnerMobile",
+          "colSpan": 1,
+          "label": { "text": "employeeContact.phoneNo2" }
+        }
+      ]
+    }
+  ]
+}

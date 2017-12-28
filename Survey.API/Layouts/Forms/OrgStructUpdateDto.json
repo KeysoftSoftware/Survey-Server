@@ -1,0 +1,52 @@
+﻿{
+  "colCount": 4,
+  "rtlEnabled": true,
+  //"labelLocation":  "left",
+  "items": [
+    {
+      "itemType": "simple",
+      "dataField": "name",
+      "colSpan": 2,
+      "isRequired": true,
+      "label": { "text": "organizationalstructure.name" },
+      "validationRules": [
+        {
+          "type": "required",
+          "message": "E-mail is required"
+        }
+      ]
+    },
+    {
+      "itemType": "empty",
+      "colSpan": 2
+    },
+    {
+      "itemType": "simple",
+      "editorType": "dxSelectBox",
+      "dataField": "managerId",
+      "colSpan": 2,
+      "label": { "text": "organizationalstructure.managerId" },
+      "editorOptions": {
+        "dataSourceName": "GetManagers",
+        "valueExpr": "Id",
+        "displayExpr": "Name"
+      }
+    },
+    {
+      "itemType": "empty",
+      "colSpan": 2
+    },
+    {
+      "itemType": "simple",
+      "editorType": "dxSelectBox",
+      "dataField": "proManagerId",
+      "colSpan": 2,
+      "label": { "text": "organizationalstructure.proffetionalManagerId" },
+      "editorOptions": {
+        "dataSourceName": "GetManagers",
+        "valueExpr": "Id",
+        "displayExpr": "Name"
+      }
+    }
+  ]
+}

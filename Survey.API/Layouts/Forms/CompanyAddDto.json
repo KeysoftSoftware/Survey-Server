@@ -1,0 +1,86 @@
+﻿{
+  "colCount": 4,
+  "rtlEnabled": true,
+  "items": [
+    {
+      "itemType": "group",
+      "colSpan": 2,
+      "items": [
+        {
+          "itemType": "simple",
+          "editorType": "dxNumberBox",
+          "dataField": "compNumber",
+          "colSpan": 1,
+          "label": { "text": "company.companyNumber" },
+          "isRequired": true,
+          "validationRules": [
+            {
+              "type": "required",
+              "message": "e-mail is required"
+            },
+            {
+              "type": "custom",
+              "message": "e-mail is required"
+            }
+          ]
+        },
+        {
+          "itemType": "simple",
+          "dataField": "name",
+          "colSpan": 1,
+          "label": { "text": "company.companyName" },
+          "isRequired": true,
+          //"useServerOnChange": true,
+          "validationRules": [
+            {
+              "type": "required",
+              "message": "E-mail is required"
+            },
+            {
+              "type": "custom",
+              "message": "E-mail is required"
+            }
+          ]
+        },
+        {
+          "itemType": "simple",
+          "editorType": "dxSelectBox",
+          "dataField": "compTypeId",
+          "colSpan": 1,
+          "label": { "text": "company.companyType" },
+          "isRequired": true,
+          "editorOptions": {
+            "dataSourceName": "GetLovs.COMPANY_TYPE",
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          },
+          "validationRules": [
+            {
+              "type": "required",
+              "message": "E-mail is required"
+            }
+          ]
+        },
+        {
+          "itemType": "simple",
+          "editorType": "dxSelectBox",
+          "dataField": "compStatusId",
+          "colSpan": 1,
+          "label": { "text": "company.companyStatus" },
+          "editorOptions": {
+            "dataSourceName": "GetLovs.COMPANY_STATUS",
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          },
+          "isRequired": true,
+          "validationRules": [
+            {
+              "type": "required",
+              "message": "E-mail is required"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,263 @@
+﻿{
+  "colCount": 4,
+  "rtlEnabled": true,
+  "items": [
+    {
+      "itemType": "group",
+      "caption": "general",
+      "colSpan": 2,
+      "items": [
+
+        {
+          "itemType": "simple",
+          "dataField": "name",
+          "colSpan": 1,
+          "label": { "text": "company.companyName" },
+          "isRequired": true,
+          "validationRules": [
+            {
+              "type": "required",
+              "message": "e-mail is required"
+            },
+            {
+              "type": "custom",
+              "message": "e-mail is required"
+            }
+          ]
+        },
+
+        {
+          "itemType": "simple",
+          "editorType": "dxSelectBox",
+          "dataField": "compTypeId",
+          "colSpan": 1,
+          "label": { "text": "company.compTypeId" },
+          "isRequired": true,
+          //"useServerOnChange": true,
+          "validationRules": [
+            {
+              "type": "required",
+              "message": "E-mail is required"
+            },
+            {
+              "type": "custom",
+              "message": "E-mail is required"
+            }
+          ]
+        },
+
+        {
+          "itemType": "simple",
+          "editorType": "dxSelectBox",
+          "dataField": "compStatusId",
+          "colSpan": 1,
+          "label": { "text": "company.compStatusId" },
+          "isRequired": true,
+          "editorOptions": {
+            "dataSourceName": "GetLovs.COMPANY_STATUS",
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          },
+          "validationRules": [
+            {
+              "type": "required",
+              "message": "E-mail is required"
+            }
+          ]
+        },
+
+        {
+          "itemType": "simple",
+          "editorType": "number",
+          "dataField": "compNumber",
+          "colSpan": 1,
+          "label": { "text": "company.compNumber" },
+          "editorOptions": {
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          },
+          "isRequired": true,
+          "validationRules": [
+            {
+              "type": "required",
+              "message": "E-mail is required"
+            }
+          ]
+        },
+        {
+          "itemType": "simple",
+          "editorType": "dxDateBox",
+          "dataField": "dateOpened",
+          "colSpan": 1,
+          "label": { "text": "company.dateOpened" },
+          "editorOptions": {
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          }
+        },
+        {
+          "itemType": "simple",
+          "editorType": "dxSelectBox",
+          "dataField": "compSectorId",
+          "colSpan": 1,
+          "label": { "text": "company.compSectorId" },
+          "editorOptions": {
+            "dataSourceName": "GetLovs.SECTOR",
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          }
+        },
+        {
+          "itemType": "simple",
+          "editorType": "dxSelectBox",
+          "dataField": "industryTypeId",
+          "colSpan": 1,
+          "label": { "text": "company.industryTypeId" },
+          "editorOptions": {
+            "dataSourceName": "GetLovs.OCCUPATION",
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          }
+        },
+        {
+          "itemType": "simple",
+          "editorType": "dxSelectBox",
+          "dataField": "industryType2Id",
+          "colSpan": 1,
+          "label": { "text": "company.industryType2Id" },
+          "editorOptions": {
+            "dataSourceName": "GetLovs.OCCUPATION",
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          }
+        },
+        {
+          "itemType": "simple",
+          "editorType": "dxSelectBox",
+          "dataField": "parentCompanyId",
+          "colSpan": 1,
+          "label": { "text": "company.parentCompanyId" },
+          "editorOptions": {
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          }
+        }
+      ]
+    },
+    {
+      "itemType": "group",
+      "caption": "companyDetailsTabs.contact",
+      "colSpan": 2,
+      "items": [
+        {
+          "itemType": "simple",
+          "editorType": "number",
+          "dataField": "phoneNo1",
+          "colSpan": 1,
+          "label": { "text": "company.phoneNo1" },
+          "editorOptions": {
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          }
+        },
+        {
+          "itemType": "simple",
+          "editorType": "number",
+          "dataField": "phoneNo2",
+          "colSpan": 1,
+          "label": { "text": "company.phoneNo2" },
+          "editorOptions": {
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          }
+        },
+        {
+          "itemType": "simple",
+          "editorType": "number",
+          "dataField": "phoneAdditional",
+          "colSpan": 1,
+          "label": { "text": "company.phoneAdditional" },
+          "editorOptions": {
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          }
+        },
+        {
+          "itemType": "simple",
+          "editorType": "number",
+          "dataField": "faxNo",
+          "colSpan": 1,
+          "label": { "text": "company.faxNo" },
+          "editorOptions": {
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          }
+        },
+        {
+          "itemType": "simple",
+          "dataField": "emailAddress",
+          "colSpan": 1,
+          "label": { "text": "company.emailAddress" },
+          "editorOptions": {
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          }
+        },
+        {
+          "itemType": "simple",
+          "dataField": "webSiteAddress",
+          "colSpan": 1,
+          "label": { "text": "company.webSiteAddress" },
+          "editorOptions": {
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          }
+        },
+        {
+          "itemType": "simple",
+          "editorType": "number",
+          "dataField": "incomeTaxNo",
+          "colSpan": 1,
+          "label": { "text": "company.incomeTaxNo" },
+          "editorOptions": {
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          }
+        },
+        {
+          "itemType": "simple",
+          "editorType": "number",
+          "dataField": "socialSecurityNo",
+          "colSpan": 1,
+          "label": { "text": "company.socialSecurityNo" },
+          "editorOptions": {
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          }
+        },
+        {
+          "itemType": "simple",
+          "editorType": "dxSelectBox",
+          "dataField": "taxReportPeriodId",
+          "colSpan": 1,
+          "label": { "text": "company.taxReportPeriodId" },
+          "editorOptions": {
+            "dataSourceName": "GetLovs.REPORT_TYPE",
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          }
+        },
+        {
+          "itemType": "simple",
+          "dataField": "isSocialSecurityDigitalReport",
+          "colSpan": 1,
+          "label": { "text": "company.isSocialSecurityDigitalReport" },
+          "editorOptions": {
+            "valueExpr": "Id",
+            "displayExpr": "Name"
+          }
+        }
+      ]
+    }
+  ]
+}

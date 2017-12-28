@@ -1,0 +1,197 @@
+﻿{
+  "colCount": 4,
+  "rtlEnabled": true,
+  "items": [
+    {
+      "itemType": "simple",
+      "dataField": "idNo",
+      "colSpan": 1,
+      "label": { "text": "employee.idNo" }
+      //"validationrules": [
+      //  {
+      //    "type": "custom",
+      //    "message": "E-mail is required"
+      //  }
+      //]
+    },
+    {
+      "itemType": "simple",
+      "dataField": "firstName",
+      "colSpan": 1,
+      "label": { "text": "employee.firstName" },
+      "isRequired": true,
+      "validationRules": [
+        {
+          "type": "required",
+          "message": "E-mail is required"
+        }
+      ]
+    },
+    {
+      "itemType": "empty",
+      "colSpan": 2
+    },
+    {
+      "itemType": "simple",
+      "dataField": "lastName",
+      "colSpan": 1,
+      "label": { "text": "employee.lastName" },
+      "isRequired": true,
+      "validationRules": [
+        {
+          "type": "required",
+          "message": "E-mail is required"
+        }
+      ]
+    },
+    {
+      "itemType": "simple",
+      "editorType": "dxDateBox",
+      "dataField": "dob",
+      "colSpan": 1,
+      "label": { "text": "employee.dateOfBirth" },
+      "isRequired": true,
+      "validationrules": [
+        {
+          "type": "required",
+          "message": "e-mail is required"
+        },
+        {
+          "type": "custom",
+          "message": "E-mail is required"
+        }
+      ]
+    },
+    {
+      "itemType": "empty",
+      "colSpan": 2
+    },
+    {
+      "itemType": "simple",
+      "editorType": "dxSelectBox",
+      "dataField": "genderId",
+      "colSpan": 1,
+      "label": { "text": "employee.gender" },
+      "isRequired": true,
+      "editorOptions": {
+        "dataSourceName": "GetLovs.GENDER",
+        "valueExpr": "Id",
+        "displayExpr": "Name"
+      },
+      "validationrules": [
+        {
+          "type": "required",
+          "message": "e-mail is required"
+        }
+      ]
+    },
+    {
+      "itemType": "simple",
+      "editorType": "dxSelectBox",
+      "dataField": "personalStatusId",
+      "colSpan": 1,
+      "label": { "text": "employee.matirialStatus" },
+      "isRequired": true,
+      "editorOptions": {
+        "dataSourceName": "GetLovs.MARITAL_STATUS",
+        "valueExpr": "Id",
+        "displayExpr": "Name"
+      },
+      "validationrules": [
+        {
+          "type": "required",
+          "message": "e-mail is required"
+        }
+      ]
+    },
+    {
+      "itemType": "empty",
+      "colSpan": 2
+    },
+    {
+      "itemType": "simple",
+      "dataField": "phoneNo",
+      "colSpan": 1,
+      "label": { "text": "employeeContact.phoneNo1" }
+    },
+    {
+      "itemType": "simple",
+      "dataField": "mobile",
+      "colSpan": 1,
+      "label": { "text": "employeeContact.phoneNo2" }
+    },
+    {
+      "itemType": "empty",
+      "colSpan": 2
+    },
+    {
+      "itemType": "simple",
+      "editorType": "dxDateBox",
+      "dataField": "workStartDate",
+      "colSpan": 1,
+      "label": { "text": "employee.startWorkingDate" },
+      "isRequired": false,
+      "validationrules": [
+        {
+          "type": "required",
+          "message": "e-mail is required"
+        }
+      ]
+    },
+    {
+      "itemType": "simple",
+      "editorType": "dxNumberBox",
+      "dataField": "empNo",
+      "colSpan": 1,
+      "label": { "text": "employee.employeeNumber" },
+      "isRequired": true,
+      "validationrules": [
+        {
+          "type": "required",
+          "message": "e-mail is required"
+        },
+        {
+          "type": "custom",
+          "message": "E-mail is required"
+        }
+      ]
+    },
+    {
+      "itemType": "empty",
+      "colSpan": 2
+    },
+    {
+      "itemType": "simple",
+      "dataField": "badge",
+      "colSpan": 1,
+      "label": { "text": "employee.badge" }
+    },
+    {
+      "itemType": "simple",
+      "dataField": "jobId",
+      "colSpan": 1,
+      "label": { "text": "employee.roleInCompany" }
+    },
+    {
+      "itemType": "empty",
+      "colSpan": 2
+    },
+    {
+      "itemType": "simple",
+      "dataField": "orgStructId",
+      "colSpan": 2,
+      "label": { "text": "company.departmentName" }
+    },
+    {
+      "itemType": "empty",
+      "colSpan": 2
+    },
+    {
+      "itemType": "simple",
+      "dataField": "comment",
+      "editorType": "dxTextArea",
+      "colSpan": 2,
+      "label": { "text": "comment" }
+    }
+  ]
+}
