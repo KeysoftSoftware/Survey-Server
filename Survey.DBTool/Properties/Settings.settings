@@ -2,11 +2,11 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Survey.DBTool.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="server" Type="System.String" Scope="User">
-      <Value Profile="(Default)">ELIS-DEV\SQL2008R2</Value>
-    </Setting>
     <Setting Name="db" Type="System.String" Scope="User">
       <Value Profile="(Default)">SurveyDB</Value>
+    </Setting>
+    <Setting Name="server" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DESKTOP-B96ET2A\SQL2016</Value>
     </Setting>
   </Settings>
 </SettingsFile>

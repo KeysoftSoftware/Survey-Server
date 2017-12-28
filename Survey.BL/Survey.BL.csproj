@@ -78,7 +78,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Routing\RouteService.cs" />
     <Compile Include="Services\Auth\AuthService.cs" />
+    <Compile Include="Services\Dto\CommonServices.cs" />
     <Compile Include="Services\Dto\GeneratedServices.cs" />
+    <Compile Include="Services\Dto\OrgStructDtoService.cs" />
     <Compile Include="Services\Forms\FormsService.cs" />
     <Compile Include="Services\Grids\GridsService.cs" />
     <Compile Include="Services\Persistene\GeneratedServices.cs" />

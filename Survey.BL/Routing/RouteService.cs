@@ -69,6 +69,7 @@ namespace Survey.BL.Routing
             srv.AddRoute("getFormLayout", GetFormLayout);
             srv.AddRoute("getEntityData", GetEntityData);
             srv.AddRoute("saveFormData", SaveFormData);
+            srv.AddRoute("getOrgStructNode", GetOrgStructNode);
 
         }
         #endregion
@@ -102,6 +103,15 @@ namespace Survey.BL.Routing
 
 
         #region Calls
+
+        #region GetOrgStructNode
+        public static void GetOrgStructNode(UserSession userSession, APICall call)
+        {
+            var service = userSession.GetService<OrgStructDtoService>();
+            service.GetNodesCall(userSession, call);
+        }
+        #endregion
+
 
         #region OnPropertyChanged
         public static void OnPropertyChanged(UserSession userSession, APICall call)

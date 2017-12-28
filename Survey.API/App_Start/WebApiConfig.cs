@@ -1,4 +1,5 @@
-﻿using Survey.Model.Query;
+﻿using Survey.Model;
+using Survey.Model.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace Survey.API
 
             ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
             builder.EntitySet<View_Sheelon>("View_Sheelon");
+            builder.EntitySet<LOVDto>("LOVDto");
 
             config.Routes.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
         }

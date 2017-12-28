@@ -219,6 +219,7 @@ namespace Survey.Model
         public int levelNo { get; set; }
         public int levelTypeId { get; set; }
         public int parentId { get; set; }
+        public int childsCount { get; set; }
         #endregion
 
     }
