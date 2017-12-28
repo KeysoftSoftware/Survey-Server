@@ -12,6 +12,7 @@ using Survey.BL;
 using Survey.BL.Services;
 using Survey.BL.Services.Persistent;
 using Survey.Model;
+using Survey.BL.Common;
 
 namespace Survey.DBTool
 {
@@ -97,6 +98,48 @@ namespace Survey.DBTool
                     userSrv.AddUser("system", "key0soft!$", "מערכת", "admin");
                     us.SaveChanges();
                 }
+
+                var lovSrv = us.GetService<LOVService>();
+
+                //orgstruct
+                var orgSTructSrv = us.GetService<OrgStructService>();
+                var parent = orgSTructSrv.CreateInternal();
+                parent.name = "תמורות";
+                parent.parentId = 0;
+                parent.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.COMPANY);
+                parent.levelNo = 1;
+
+                orgSTructSrv.SaveInternal(parent, msgs);
+                us.SaveChanges();
+                parent.Code = parent.Id.ToString();
+                var child = orgSTructSrv.CreateInternal();
+
+                if(parent != null)
+                {
+                    child.name = "הפצה";
+                    child.parentId = parent.Id;
+                    child.parentOrgStruct = parent;
+                    child.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.DEPARTMENT);
+                    orgSTructSrv.SaveInternal(parent, msgs);
+                    us.FlushChanges();
+                    child.Code = parent.Code + "-" + child.Id.ToString();
+                    child = orgSTructSrv.CreateInternal();
+                    child.name = "שיווק";
+                    child.parentId = parent.Id;
+                    child.parentOrgStruct = parent;
+                    child.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.DEPARTMENT);
+                    orgSTructSrv.SaveInternal(parent, msgs);
+                    us.FlushChanges();
+                    child.Code = parent.Id + "-" + child.Id.ToString();
+                    child.name = "הדרכה";
+                    child.parentId = parent.Id;
+                    child.parentOrgStruct = parent;
+                    child.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.DEPARTMENT);
+                    orgSTructSrv.SaveInternal(parent, msgs);
+                    us.FlushChanges();
+                    child.Code = parent.Id + "-" + child.Id.ToString();
+                }
+
             }
         }
         #endregion

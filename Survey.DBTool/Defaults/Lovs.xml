@@ -2,151 +2,19 @@
 
 <EntityType Name="LOV">
 
-  <!-- EXTRAHOURS_RETZEF -->
-  <LOVParent Code="EXTRAHOURS_RETZEF" Name="מדיניות רצף" isSystem="true">
-    <LOV Code="NO_RETZEF" Name="ללא רצף" />
-    <LOV Code="RETZEF" Name="רצף" />
-    <LOV Code="RETZEF_DEREG" Name="רצף שעות בדרגה" />
-  </LOVParent>
-  
-  <!-- COUNTRIES -->
-  <LOVParent Code="COUNTRIES" Name="מדינות" isSystem="true">
-    <LOV Code="ISRAEL" Name="ישראל" />
+  <!-- Qqat -->
+  <LOVParent Code="QCAT" Name="קטגורית שאלות" isSystem="true">
+    <LOV Code="SURVEYS" Name="סקרים" />
+    <LOV Code="QUESTIONNAIRES" Name="שאלונים" />
+    <LOV Code="FEEDBACK" Name="משובים" />
   </LOVParent>
 
-  <!-- CITIES -->
-  <LOVParent Code="CITIES" Name="ערים"  isSystem="true">
-    <LOV Code="JERUSALEM" Name="ירושלים" />
-    <LOV Code="HAIFA" Name="חיפה" />
-    <LOV Code="TEL_AVIV" Name="תל אביב" />
-    <LOV Code="BEER_SHEVA" Name="באר שבע" />
+  <!--SHEELON_TYPE-->
+  <LOVParent Code="SHEELON_TYPE" Name="" isSystem="true">
+    <LOV Code="SURVEY" Name="סקר" />
+    <LOV Code="QUESTIONNAIRY" Name="שאלון" />
+    <LOV Code="FEEDBACK" Name="משוב" />
   </LOVParent>
-
-  <!-- COMPANY_STATUS -->
-  <LOVParent Code="COMPANY_STATUS" Name="סטטוס" isSystem="true">
-    <LOV Code="ACTIVE" Name="פעילה" />
-    <LOV Code="LIQUIDATION" Name="בפירוק" />
-  </LOVParent>
-
-  <!-- OCCUPATIONS -->
-  <LOVParent Code="OCCUPATION" Name="ענף תעסוקה" isSystem="false">
-    <LOV Code="SECURITY" Name="אבטחה" />
-    <LOV Code="CLEANLINESS" Name="ניקיון" />
-    <LOV Code="HITECH" Name="הייטק" />
-    <LOV Code="SAVING" Name="שמירה" />
-    <LOV Code="HOTELS" Name="מלונאות" />
-    <LOV Code="CATERING" Name="הסעדה" />
-    <LOV Code="EVENTS" Name="אולמות" />
-  </LOVParent>
-
-  <!-- COMPANY_TYPE -->
-  <LOVParent Code="COMPANY_TYPE" Name="סוג חברה" isSystem="true">
-    <LOV Code="LTD" Name='חברה בע"מ' />
-    <LOV Code="DEALER" Name="עוסק מורשה" />
-    <LOV Code="CHARITIES" Name='מלכ"ר' />
-    <LOV Code="COOPERATIVE" Name="אגודה שיתופית" />
-    <LOV Code="PERMISSION" Name="רשות" />
-  </LOVParent>
-
-  <!-- BANKS -->
-  <LOVParent Code="BANKS" Name="בנק" isSystem="true">
-    <LOV Code="12" Name="הפועלים" />
-    <LOV Code="11" Name="דיסקונט" />
-    <LOV Code="20" Name="מיזרחי טפחות" />
-    <LOV Code="10" Name="לאומי" />
-    <LOV Code="09" Name="הדואר" />
-    <LOV Code="13" Name="איגוד" />
-    <LOV Code="14" Name="אוצר החייל" />
-    <LOV Code="17" Name="מרכנתיל דיסקונט" />
-    <LOV Code="22" Name="סיטי בנק" />
-    <LOV Code="26" Name="יובנק" />
-    <LOV Code="31" Name="בינלאומי" />
-    <LOV Code="34" Name="ערבי ישראל" />
-    <LOV Code="46" Name="מסד" />
-    <LOV Code="54" Name="ירושלים" />
-    <LOV Code="04" Name="יהב" />
-  </LOVParent>
-
-  <!--SECTOR-->
-  <LOVParent Code="SECTOR" Name="מגזר" isSystem="true">
-    <LOV Code="PUBLIC" Name="ציבורי" />
-    <LOV Code="PRIVATE" Name="פרטי" />
-  </LOVParent>
-
-  <!--WORK_WEEK_TYPE-->
-  <LOVParent Code="WORK_WEEK_TYPE" Name="סוג שבוע עבודה" isSystem="true">
-    <LOV Code="FIVE_DAYS" Name="חמישה ימים" />
-    <LOV Code="SIX_DAYS" Name="שישה ימים" />
-  </LOVParent>
-
-  <!--REPORT_TYPE-->
-  <LOVParent Code="REPORT_TYPE" Name="סוג דיווח" isSystem="true">
-    <LOV Code="MONTHLY" Name="חודשי" />
-    <LOV Code="BI_MONTHLY" Name="דו חודשי" />
-  </LOVParent>
-
-  <!--EMPLOYEE_GROUP-->
-  <LOVParent Code="EMPLOYEES_GROUP" Name="קבוצת עובדים" isSystem="true">
-    <LOV Code="A_GENERATION" Name="דור א" />
-    <LOV Code="B_GENERATION" Name="דור ב" />
-    <LOV Code="SENIOR" Name="בכירים" />
-  </LOVParent>
-
-  <!--UNIT-->
-  <LOVParent Code="UNIT" Name="יחידה" isSystem="true">
-    <LOV Code="DAY" Name="יום" />
-    <LOV Code="MONTH" Name="חודש" />
-    <LOV Code="YEAR" Name="שנה" />
-  </LOVParent>
-
-  <!--LEVEL_TYPE-->
-  <LOVParent Code="LEVEL_TYPE" Name="סוג דרג מבנה ארגוני" isSystem="false">
-    <LOV Code="COMPANY" Name="חברה" sortOrder="1" />
-    <LOV Code="DEPARTMENT" Name="מחלקה" sortOrder="2" />
-    <LOV Code="SUB_DEPARTMENT" Name="תת מחלקה" sortOrder="3"/>
-    <LOV Code="SUB_SUB_DEPARTMENT" Name="תת תת מחלקה" sortOrder="4" />
-  </LOVParent>
-
-  <!--ASSESSING_OFFICERS-->
-  <LOVParent Code="ASSESSING_OFFICER" Name="פקיד שומה" isSystem="true">
-    <LOV Code="INCOME_TAX" Name="מס הכנסה" />
-    <LOV Code="SOCIAL_INSURANCE" Name="ביטוח לאומי" />
-  </LOVParent>
-
-  <!--LEVELS--><!--
-  <LOVParent Code="LEVELS" Name="דרג" isSystem="true">
-    <LOV Code="ATIDIM" Name="עתידים" />
-    <LOV Code="STUDENT" Name="סטודנט" />
-  </LOVParent>-->
-
-  <!--CLASSIFICATIONS-->
-  <!--<LOVParent Code="CLASSIFICATIONS" Name="דירוג" isSystem="false">
-    <LOV Code="RESEARCH" Name="מחקר" />
-    <LOV Code="ENGINEERING" Name="הנדסה" />
-    <LOV Code="TECHNICIAN" Name="טכנאות" />
-  </LOVParent>-->
-
-  <!--ZAKAUT_TYPES-->
-  <LOVParent Code="ZAKAUT_TYPES" Name="סוג זכאות" isSystem="true">
-    <LOV Code="SICKNESS" Name="מחלה" />
-    <LOV Code="VACATION" Name="חופשה" />
-    <LOV Code="RECOVERY" Name="הבראה" />
-    <LOV Code="HISHTALMUT" Name="השתלמות" />
-  </LOVParent>
-
-
-  <!-- RELATION_TYPE -->
-  <LOVParent Code="RELATION_TYPE" Name="יחס" isSystem="true">
-    <LOV Code="ASSOC" Name="הקשר" />
-    <LOV Code="PARENT" Name="אב" />
-  </LOVParent>
-
-  <!-- GENDER -->
-  <LOVParent Code="GENDER" Name="מין" isSystem="true">
-    <LOV Code="MALE" Name="זכר" />
-    <LOV Code="FEMALE" Name="נקבה" />
-  </LOVParent>
-
 
   <!-- ROLE -->
   <LOVParent Code="ROLES" Name="הרשאת כניסה" isSystem="true">
@@ -156,112 +24,12 @@
   </LOVParent>
 
 
-  <!--JOBS_TYPES-->
-  <LOVParent Code="WORK_TYPES" Name="סוג משרה" isSystem="true">
-    <LOV Code="REGULAR" Name="רגיל" />
-    <LOV Code="SHIFT" Name="משמרת" />
+  <!--LEVEL_TYPE-->
+  <LOVParent Code="LEVEL_TYPE" Name="סוג דרג מבנה ארגוני" isSystem="false">
+    <LOV Code="COMPANY" Name="חברה" sortOrder="1" />
+    <LOV Code="DEPARTMENT" Name="מחלקה" sortOrder="2" />
+    <LOV Code="SUB_DEPARTMENT" Name="תת מחלקה" sortOrder="3"/>
+    <LOV Code="SUB_SUB_DEPARTMENT" Name="תת תת מחלקה" sortOrder="4" />
   </LOVParent>
-
-  <!-- MARITAL STATUS -->
-  <LOVParent Code="MARITAL_STATUS" Name="מצב משפחתי" isSystem="true">
-    <LOV Code="SINGLE" Name="רווק" />
-    <LOV Code="MARRIED" Name="נשוי" />
-    <LOV Code="DIVORCED" Name="גרוש" />
-    <LOV Code="SEPERATED" Name="פרוד" />
-    <LOV Code="WIDOW" Name="אלמן" />
-  </LOVParent>
-
-  <!-- CALENDAR TYPE -->
-  <LOVParent Code="CALENDAR_TYPE" Name="סוג לוח שנה" isSystem="false">
-    <LOV Code="JEWISH" Name="יהודי" />
-    <LOV Code="CHRISTIAN" Name="נוצרי" />
-    <LOV Code="MUSLIM" Name="מוסלימי" />
-    <LOV Code="DRUZE" Name="דרוזי" />
-  </LOVParent>
-
-  <!-- EMPLOYEMENT TYPE -->
-  <LOVParent Code="EMPLOYEMENTֹ_TYPE" Name="סוג העסקה" isSystem="true">
-    <LOV Code="MONTHLY" Name="חודשי" />
-    <LOV Code="HOURLY" Name="שעתי" />
-  </LOVParent>
-
-  <!-- DAY TYPE -->
-  <LOVParent Code="DAYֹ_TYPE" Name="סוג יום" isSystem="false">
-    <LOV Code="REGULAR" Name="רגיל" />
-    <LOV Code="REST_DAY_EVE" Name="ערב יום מנוחה" />
-    <LOV Code="REST_DAY" Name="יום מנוחה" />
-    <LOV Code="REST_DAY_AFTER" Name="מוצאי יום מנוחה" />
-    <LOV Code="HOLIDAY_EVE" Name="ערב חג" />
-    <LOV Code="HOLIDAY" Name="חג" />
-    <LOV Code="INTERMEDIATE_HOLIDAY" Name="חול המועד" />
-    <LOV Code="EREV_YOM_KIPUR" Name="ערב יום כיפור" />
-    <LOV Code="YOM_HATSMAUT" Name="יום העצמאות" />
-  </LOVParent>
-
-
-  <!-- WORKING HOUR TYPE -->
-  <LOVParent Code="WORKING_HOUR_TYPE" Name="סוג שעה" isSystem="false">
-    <LOV Code="REGULAR" Name="רגיל" sortOrder="0"/>
-    <LOV Code="100_HOURS" Name="שעות 100" sortOrder="1"/>
-    <LOV Code="HOURS_125" Name="שעות 125" sortOrder="2"/>
-    <LOV Code="HOURS_150" Name="שעות 150" sortOrder="3"/>
-    <LOV Code="HOURS_175" Name="שעות 175" sortOrder="4"/>
-    <LOV Code="HOURS_200" Name="שעות 200" sortOrder="5"/>
-    <LOV Code="HOURS_150S" Name="שעות שבת 150" sortOrder="6"/>
-    <LOV Code="HOURS_175S" Name="שעות שבת 175" sortOrder="7"/>
-    <LOV Code="HOURS_200S" Name="שעות שבת 200" sortOrder="8"/>
-  </LOVParent>
-
-  <!-- BREAK TYPE -->
-  <LOVParent Code="BREAK_TYPE" Name="סוג הפסקה" isSystem="true">
-    <LOV Code="CONSTANT" Name="הפסקה קבועה" />
-    <LOV Code="TIMEֹ_BASED" Name="לפי נוכחות" />
-    <LOV Code="BY_CARD" Name="העברת כרטיס" />
-  </LOVParent>
-
-  <!-- ENTRY/EXIT POLICY PAY TYPE -->
-  <LOVParent Code="ENTRYֹ_EXIT_POLICY_PAY_TYPE" Name="סוג מדיניות כניסה - יציאה" isSystem="true">
-    <LOV Code="ALL" Name="הכל" />
-    <LOV Code="UNTIL" Name="עד" />
-    <LOV Code="BIGGER_THAN" Name="יותר מ" />
-    <LOV Code="BIGGER_THAN_ONLY" Name="יותר מ רק" />
-  </LOVParent>
-
-  <!-- SHIFT_IDENTIFICATION -->
-  <!--<LOVParent Code="SHIFT_IDENTIFICATION" Name="זיהוי משמרות" isSystem="true">
-    <LOV Code="KNISA" Name="כניסה" />
-    <LOV Code="YETSIYA" Name="יציאה" />
-    <LOV Code="ROV_HATHUM" Name="רוב התחום" />
-  </LOVParent>-->
-
-
-  <!-- DAYS -->
-  <!--<LOVParent Code="DAYS" Name="ימים" isSystem="true">
-    <LOV Code="SUNDAY" Name="א" />
-    <LOV Code="MONDAY" Name="ב" />
-    <LOV Code="TUESDAY" Name="ג" />
-    <LOV Code="WEDNESDAY" Name="ד" />
-    <LOV Code="THURTHDAY" Name="ה" />
-    <LOV Code="FRIDAY" Name="ו" />
-    <LOV Code="SATURDAY" Name="ש" />
-  </LOVParent>-->
-
-
-  <!-- EMPLOYEE_STATUS -->
-  <LOVParent Code="EMPLOYEE_STATUS" Name="סטטוס עובד" isSystem="true">
-    <LOV Code="ACTIVE" Name="פעיל" />
-    <LOV Code="HOLD" Name="מושהה" />
-    <LOV Code="LEAVE" Name="עזב" />
-  </LOVParent>
-
-  <!-- ENTRY_EXIST_SOURCE -->
-  <LOVParent Code="ENTRY_EXIST_SOURCE" Name="מקור דיווח" isSystem="true">
-    <LOV Code="WATCH" Name="שעון" />
-    <LOV Code="APPLICATION" Name="אפליקציה" />
-    <LOV Code="EXTERNAL" Name="חיצוני" />
-    <LOV Code="EMPLOYEE_AUTO" Name="עובד - אוט'" />
-    <LOV Code="EMPLOYEE_MANUAL" Name="עובד - ידני" />
-    <LOV Code="MANAGER_MANUAL" Name="מנהל - ידני" />
-  </LOVParent>
-
+  
 </EntityType>
