@@ -1,0 +1,27 @@
+﻿{
+  "colCount": 4,
+  "rtlEnabled": true,
+  "items": [
+    {
+      "itemType": "simple",
+      "dataField": "name",
+      "colSpan": 2,
+      "label": { "text": "sheelon.name" }
+    },
+    {
+      "itemType": "empty",
+      "colSpan": 2
+    },
+    {
+      "itemType": "simple",
+      "editorType": "dxDateBox",
+      "dataField": "openning",
+      "colSpan": 2,
+      "label": { "text": "sheelon.openingDate" }
+    },
+    {
+      "itemType": "empty",
+      "colSpan": 2
+    }
+  ]
+}

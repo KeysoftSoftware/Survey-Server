@@ -153,6 +153,7 @@
     <Content Include="Layouts\Forms\OrgStructUpdateDto.json" />
     <Content Include="Layouts\Grids\LOV.json" />
     <Content Include="Layouts\Grids\Sheelon.json" />
+    <Content Include="Layouts\Forms\SheelonDto.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
