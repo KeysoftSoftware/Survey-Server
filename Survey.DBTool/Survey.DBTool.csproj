@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="All.sql" />
+    <Content Include="Defaults\Lovs.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Survey.BL\Survey.BL.csproj">

@@ -1,9 +1,8 @@
 ﻿{
-    "columns": [
+  "columns": [
     {
       "caption": "זיהוי",
-      "dataField": "Id",
-      "isLink": true
+      "dataField": "Id"
     },
     {
       "caption": "שם",
@@ -13,5 +12,18 @@
     {
       "caption": "משותף",
       "dataField": "shared"
+    },
+    {
+      "caption": "F1",
+      "dataField": "F1"
+    },
+    {
+      "caption": "F2",
+      "dataField": "F2"
+    },
+    {
+      "caption": "F3",
+      "dataField": "F3"
     }
+  ]
 }
