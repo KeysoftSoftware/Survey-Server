@@ -140,6 +140,42 @@ namespace Survey.DBTool
                     child.Code = parent.Id + "-" + child.Id.ToString();
                 }
 
+                parent.name = "קיסופט";
+                parent.parentId = 0;
+                parent.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.COMPANY);
+                parent.levelNo = 1;
+
+                orgSTructSrv.SaveInternal(parent, msgs);
+                us.SaveChanges();
+                parent.Code = parent.Id.ToString();
+                child = orgSTructSrv.CreateInternal();
+
+                if (parent != null)
+                {
+                    child = orgSTructSrv.CreateInternal();
+                    child.name = "פיתוח";
+                    child.parentId = parent.Id;
+                    child.parentOrgStruct = parent;
+                    child.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.DEPARTMENT);
+                    orgSTructSrv.SaveInternal(parent, msgs);
+                    us.FlushChanges();
+                    child.Code = parent.Code + "-" + child.Id.ToString();
+                    child = orgSTructSrv.CreateInternal();
+                    child.name = "תמיכה";
+                    child.parentId = parent.Id;
+                    child.parentOrgStruct = parent;
+                    child.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.DEPARTMENT);
+                    orgSTructSrv.SaveInternal(parent, msgs);
+                    us.FlushChanges();
+                    child.Code = parent.Id + "-" + child.Id.ToString();
+                    child.name = "הדרכה";
+                    child.parentId = parent.Id;
+                    child.parentOrgStruct = parent;
+                    child.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.DEPARTMENT);
+                    orgSTructSrv.SaveInternal(parent, msgs);
+                    us.FlushChanges();
+                    child.Code = parent.Id + "-" + child.Id.ToString();
+                }
             }
         }
         #endregion
