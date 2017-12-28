@@ -112,6 +112,8 @@ namespace Survey.DBTool
                 orgSTructSrv.SaveInternal(parent, msgs);
                 us.SaveChanges();
                 parent.Code = parent.Id.ToString();
+                us.SaveChanges();
+
                 var child = orgSTructSrv.CreateInternal();
 
                 if(parent != null)
@@ -121,7 +123,8 @@ namespace Survey.DBTool
                     child.parentOrgStruct = parent;
                     child.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.DEPARTMENT);
                     orgSTructSrv.SaveInternal(parent, msgs);
-                    us.FlushChanges();
+                    us.SaveChanges();
+
                     child.Code = parent.Code + "-" + child.Id.ToString();
                     child = orgSTructSrv.CreateInternal();
                     child.name = "שיווק";
@@ -129,15 +132,19 @@ namespace Survey.DBTool
                     child.parentOrgStruct = parent;
                     child.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.DEPARTMENT);
                     orgSTructSrv.SaveInternal(parent, msgs);
-                    us.FlushChanges();
+                    us.SaveChanges();
+
                     child.Code = parent.Id + "-" + child.Id.ToString();
                     child.name = "הדרכה";
                     child.parentId = parent.Id;
                     child.parentOrgStruct = parent;
                     child.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.DEPARTMENT);
                     orgSTructSrv.SaveInternal(parent, msgs);
-                    us.FlushChanges();
+                    us.SaveChanges();
+
                     child.Code = parent.Id + "-" + child.Id.ToString();
+                    us.SaveChanges();
+
                 }
 
                 parent.name = "קיסופט";
@@ -148,8 +155,7 @@ namespace Survey.DBTool
                 orgSTructSrv.SaveInternal(parent, msgs);
                 us.SaveChanges();
                 parent.Code = parent.Id.ToString();
-                child = orgSTructSrv.CreateInternal();
-
+                us.SaveChanges();
                 if (parent != null)
                 {
                     child = orgSTructSrv.CreateInternal();
@@ -158,7 +164,7 @@ namespace Survey.DBTool
                     child.parentOrgStruct = parent;
                     child.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.DEPARTMENT);
                     orgSTructSrv.SaveInternal(parent, msgs);
-                    us.FlushChanges();
+                    us.SaveChanges();
                     child.Code = parent.Code + "-" + child.Id.ToString();
                     child = orgSTructSrv.CreateInternal();
                     child.name = "תמיכה";
@@ -166,15 +172,17 @@ namespace Survey.DBTool
                     child.parentOrgStruct = parent;
                     child.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.DEPARTMENT);
                     orgSTructSrv.SaveInternal(parent, msgs);
-                    us.FlushChanges();
+                    us.SaveChanges();
                     child.Code = parent.Id + "-" + child.Id.ToString();
                     child.name = "הדרכה";
                     child.parentId = parent.Id;
                     child.parentOrgStruct = parent;
                     child.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.DEPARTMENT);
                     orgSTructSrv.SaveInternal(parent, msgs);
-                    us.FlushChanges();
+                    us.SaveChanges();
                     child.Code = parent.Id + "-" + child.Id.ToString();
+                    us.SaveChanges();
+
                 }
             }
         }
