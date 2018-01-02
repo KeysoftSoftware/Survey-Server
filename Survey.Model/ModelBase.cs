@@ -15,16 +15,20 @@ namespace Survey.Model
     {
         public ModelBase()
         {
-
+            IsActive = true;
         }
         public ModelBase(Session prmSession)
            : base(prmSession)
         {
+            IsActive = true;
         }
         public ModelBase(UnitOfWork prmSession)
-            : base(prmSession as Session)
+            : base(prmSession)
         {
+            IsActive = true;
         }
+
+
 
         protected virtual void SetValue<T>(string prmPropertyName, ref T prmVariable, T prmNewValue)
         {

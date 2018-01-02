@@ -11,6 +11,7 @@ using Unclassified.FieldLog;
 
 namespace Survey.BL.Services.Dto
 {
+    #region SheelonDtoService
     public partial class SheelonDtoService
     {
         protected override void OnSaveNonPersistentEntity(SheelonDto entity, IReportedMsgs msgs)
@@ -28,7 +29,7 @@ namespace Survey.BL.Services.Dto
                 {
                     _UserSession.RollBack();
                 }
-              
+
             }
             catch (Exception e)
             {
@@ -66,4 +67,12 @@ namespace Survey.BL.Services.Dto
         }
 
     }
+    #endregion
+
+    #region QTypeDtoService
+    public partial class QTypeDtoService
+    {
+
+    } 
+    #endregion
 }

@@ -15,7 +15,9 @@
     },
     {
       "caption": "F1",
-      "dataField": "F1"
+      "dataField": "F1",
+      "width":  200
+
     },
     {
       "caption": "F2",

@@ -28,7 +28,6 @@ namespace Survey.Model
         #endregion
 
         #region Properties
-
         public string name { get; set; }
         public string openning { get; set; }
         public int loginManagerId { get; set; }
@@ -37,6 +36,7 @@ namespace Survey.Model
         public string F1 { get; set; }
         public string F2 { get; set; }
         public string F3 { get; set; }
+
         #endregion
 
     }
@@ -60,12 +60,12 @@ namespace Survey.Model
         #endregion
 
         #region Properties
-
         public int sheelonId { get; set; }
         public DateTime fromDate { get; set; }
         public DateTime? toDate { get; set; }
         public string relaeaseVersion { get; set; }
         public string name { get; set; }
+
         #endregion
 
     }
@@ -91,14 +91,26 @@ namespace Survey.Model
         #endregion
 
         #region Properties
-
         public int categoryId { get; set; }
         public string name { get; set; }
+        /// <summary>
+        /// סוג שאלה
+        /// </summary>
         public int qTypeId { get; set; }
+        /// <summary>
+        /// אדיטור לממשק משתמש
+        /// </summary>
         public string editorType { get; set; }
         public string comment { get; set; }
+        /// <summary>
+        /// לא ברור
+        /// </summary>
         public int qOptCount { get; set; }
+        /// <summary>
+        /// מקסימום תשובות לבחירה במקרה שיש מרובה
+        /// </summary>
         public int maxAnswerCount { get; set; }
+
         #endregion
 
     }
@@ -124,7 +136,6 @@ namespace Survey.Model
         #endregion
 
         #region Properties
-
         public string langCode { get; set; }
         public string text { get; set; }
         public string textLong { get; set; }
@@ -132,6 +143,7 @@ namespace Survey.Model
         public string textPrint { get; set; }
         public string textMobile { get; set; }
         public string picture { get; set; }
+
         #endregion
 
     }
@@ -154,11 +166,11 @@ namespace Survey.Model
         #endregion
 
         #region Properties
-
         public int sheelonId { get; set; }
         public int pageNo { get; set; }
         public string name { get; set; }
         public string langCode { get; set; }
+
         #endregion
 
     }
@@ -182,17 +194,55 @@ namespace Survey.Model
         #endregion
 
         #region Properties
-
+        /// <summary>
+        /// קישור לכל הטקסטים
+        /// </summary>
         public int qTextId { get; set; }
+        /// <summary>
+        /// גירסה נכונה מתאריך
+        /// </summary>
         public DateTime fromDate { get; set; }
+        /// <summary>
+        /// קישור להגדרת שאלה
+        /// </summary>
         public int questionId { get; set; }
+        /// <summary>
+        /// מינימום בחירה
+        /// </summary>
         public int minSelections { get; set; }
+        /// <summary>
+        /// מה התשובה הנכונה
+        /// </summary>
         public int rightanswer { get; set; }
+
         #endregion
 
     }
 
     #endregion QuestionRelease
+
+    #region QType
+    [KF.Primitives.NonPersist]
+    public partial class QTypeDto : TBaseEntity<QType>
+    {
+
+        #region Fields
+        public static class Fields
+        {
+            public static string typeId = "typeId";
+            public static string editor = "editor";
+        }
+        #endregion
+
+        #region Properties
+        public int typeId { get; set; }
+        public string editor { get; set; }
+
+        #endregion
+
+    }
+
+    #endregion QType
 
     #region OrgStruct
     [KF.Primitives.NonPersist]
@@ -212,14 +262,13 @@ namespace Survey.Model
         #endregion
 
         #region Properties
-
         public string name { get; set; }
         public string description { get; set; }
         public int parentOrgStructId { get; set; }
         public int levelNo { get; set; }
         public int levelTypeId { get; set; }
         public int parentId { get; set; }
-        public int childsCount { get; set; }
+
         #endregion
 
     }

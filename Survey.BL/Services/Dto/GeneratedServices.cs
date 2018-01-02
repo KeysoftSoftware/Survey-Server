@@ -64,6 +64,15 @@ namespace Survey.BL.Services.Dto
     }
     #endregion
 
+    #region QType
+    public partial class QTypeDtoService : DynamicFormEntityService<QTypeDto>
+    {
+        public QTypeDtoService(UserSession us) : base(us)
+        {
+        }
+    }
+    #endregion
+
     #region OrgStruct
     public partial class OrgStructDtoService : DynamicFormEntityService<OrgStructDto>
     {

@@ -661,6 +661,15 @@ namespace Survey.Model
         }
         #endregion
 
+        #region comments
+        private string _comments;
+        public string comments
+        {
+            get { return _comments; }
+            set { SetValue<string>("comments", ref _comments, value); }
+        }
+        #endregion
+
         #endregion
 
     }

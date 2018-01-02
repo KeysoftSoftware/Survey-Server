@@ -25,19 +25,19 @@ namespace Survey.API.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ELIS-DEV\\SQL2008R2")]
-        public string server {
+        [global::System.Configuration.DefaultSettingValueAttribute("SurveyDB")]
+        public string db {
             get {
-                return ((string)(this["server"]));
+                return ((string)(this["db"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("SurveyDB")]
-        public string db {
+        [global::System.Configuration.DefaultSettingValueAttribute("ELIS-DEV\\SQL2008R2")]
+        public string server {
             get {
-                return ((string)(this["db"]));
+                return ((string)(this["server"]));
             }
         }
     }
