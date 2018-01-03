@@ -109,6 +109,29 @@ namespace Survey.DBTool
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+        #endregion
+
+        #region cmdSampleData_Click
+        private void cmdSampleData_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                UserEnv env = new UserEnv() { langCode = "he" };
+                var us = new UserSession(BL.DataManager.GetDBContext(), env);
+
+                var msgs = SampleData.CreateSampleData(us);
+
+                if (!msgs.hasAnyError)
+                    MessageBox.Show("success!!!");
+
+                else MessageBox.Show("An arror occurred");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         } 
         #endregion
     }

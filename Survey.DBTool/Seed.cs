@@ -119,7 +119,7 @@ namespace Survey.DBTool
                 {
                     child.name = "הפצה";
                     child.parentId = parent.Id;
-                    child.parentOrgStruct = parent;
+                    child.parentOrgStructId = parent.Id;
                     child.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.DEPARTMENT);
                     orgSTructSrv.SaveInternal(parent, msgs);
                     us.FlushChanges();
@@ -129,7 +129,7 @@ namespace Survey.DBTool
                     child = orgSTructSrv.CreateInternal();
                     child.name = "הפצה צפון";
                     child.parentId = depParent.Id;
-                    child.parentOrgStruct = depParent;
+                    child.parentOrgStructId = depParent.Id;
                     child.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.DEPARTMENT);
                     orgSTructSrv.SaveInternal(parent, msgs);
                     us.FlushChanges();
@@ -138,7 +138,7 @@ namespace Survey.DBTool
                     child = orgSTructSrv.CreateInternal();
                     child.name = "הפצה דרום";
                     child.parentId = depParent.Id;
-                    child.parentOrgStruct = depParent;
+                    child.parentOrgStructId = depParent.Id;
                     child.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.DEPARTMENT);
                     orgSTructSrv.SaveInternal(parent, msgs);
                     us.FlushChanges();
@@ -148,7 +148,7 @@ namespace Survey.DBTool
                     child = orgSTructSrv.CreateInternal();
                     child.name = "שיווק";
                     child.parentId = parent.Id;
-                    child.parentOrgStruct = parent;
+                    child.parentOrgStructId = parent.Id;
                     child.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.DEPARTMENT);
                     orgSTructSrv.SaveInternal(parent, msgs);
                     us.FlushChanges();
@@ -157,7 +157,7 @@ namespace Survey.DBTool
                     child = orgSTructSrv.CreateInternal();
                     child.name = "הדרכה";
                     child.parentId = parent.Id;
-                    child.parentOrgStruct = parent;
+                    child.parentOrgStructId = parent.Id;
                     child.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.DEPARTMENT);
                     orgSTructSrv.SaveInternal(parent, msgs);
                     us.FlushChanges();
@@ -183,7 +183,7 @@ namespace Survey.DBTool
                     child = orgSTructSrv.CreateInternal();
                     child.name = "פיתוח";
                     child.parentId = parent.Id;
-                    child.parentOrgStruct = parent;
+                    child.parentOrgStructId = parent.Id;
                     child.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.DEPARTMENT);
                     orgSTructSrv.SaveInternal(parent, msgs);
                     us.FlushChanges();
@@ -192,7 +192,7 @@ namespace Survey.DBTool
                     child = orgSTructSrv.CreateInternal();
                     child.name = "תמיכה";
                     child.parentId = parent.Id;
-                    child.parentOrgStruct = parent;
+                    child.parentOrgStructId = parent.Id;
                     child.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.DEPARTMENT);
                     orgSTructSrv.SaveInternal(parent, msgs);
                     us.FlushChanges();
@@ -201,7 +201,7 @@ namespace Survey.DBTool
                     child = orgSTructSrv.CreateInternal();
                     child.name = "הדרכה";
                     child.parentId = parent.Id;
-                    child.parentOrgStruct = parent;
+                    child.parentOrgStructId = parent.Id;
                     child.levelType = lovSrv.GetLovByCode(Constants.Lovs.LEVEL_TYPE, Constants.LevelTypes.DEPARTMENT);
                     orgSTructSrv.SaveInternal(parent, msgs);
                     us.FlushChanges();

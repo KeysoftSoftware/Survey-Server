@@ -24,6 +24,7 @@ namespace Survey.Model
 
         #region name
         private string _name;
+
         public string name
         {
             get { return _name; }
@@ -33,6 +34,7 @@ namespace Survey.Model
 
         #region openning
         private string _openning;
+
         public string openning
         {
             get { return _openning; }
@@ -42,6 +44,7 @@ namespace Survey.Model
 
         #region loginManagerId
         private int _loginManagerId;
+
         public int loginManagerId
         {
             get { return _loginManagerId; }
@@ -51,6 +54,7 @@ namespace Survey.Model
 
         #region shared
         private bool _shared;
+
         public bool shared
         {
             get { return _shared; }
@@ -60,6 +64,7 @@ namespace Survey.Model
 
         #region userId
         private int _userId;
+
         public int userId
         {
             get { return _userId; }
@@ -69,6 +74,7 @@ namespace Survey.Model
 
         #region F1
         private string _F1;
+
         public string F1
         {
             get { return _F1; }
@@ -78,6 +84,7 @@ namespace Survey.Model
 
         #region F2
         private string _F2;
+
         public string F2
         {
             get { return _F2; }
@@ -87,6 +94,7 @@ namespace Survey.Model
 
         #region F3
         private string _F3;
+
         public string F3
         {
             get { return _F3; }
@@ -112,17 +120,19 @@ namespace Survey.Model
 
         #region Properties
 
-        #region sheelon
-        private Sheelon _sheelon;
-        public Sheelon sheelon
+        #region sheelonId
+        private int _sheelonId;
+
+        public int sheelonId
         {
-            get { return _sheelon; }
-            set { SetValue<Sheelon>("sheelon", ref _sheelon, value); }
+            get { return _sheelonId; }
+            set { SetValue<int>("sheelonId", ref _sheelonId, value); }
         }
         #endregion
 
         #region fromDate
         private DateTime _fromDate;
+
         public DateTime fromDate
         {
             get { return _fromDate; }
@@ -132,6 +142,7 @@ namespace Survey.Model
 
         #region toDate
         private DateTime? _toDate;
+
         public DateTime? toDate
         {
             get { return _toDate; }
@@ -139,17 +150,19 @@ namespace Survey.Model
         }
         #endregion
 
-        #region relaeaseVersion
-        private string _relaeaseVersion;
-        public string relaeaseVersion
+        #region releaseVersion
+        private string _releaseVersion;
+
+        public string releaseVersion
         {
-            get { return _relaeaseVersion; }
-            set { SetValue<string>("relaeaseVersion", ref _relaeaseVersion, value); }
+            get { return _releaseVersion; }
+            set { SetValue<string>("releaseVersion", ref _releaseVersion, value); }
         }
         #endregion
 
         #region name
         private string _name;
+
         public string name
         {
             get { return _name; }
@@ -177,6 +190,7 @@ namespace Survey.Model
 
         #region categoryId
         private int _categoryId;
+
         public int categoryId
         {
             get { return _categoryId; }
@@ -186,6 +200,7 @@ namespace Survey.Model
 
         #region name
         private string _name;
+
         public string name
         {
             get { return _name; }
@@ -194,16 +209,24 @@ namespace Survey.Model
         #endregion
 
         #region qType
-        private QType _qType;
-        public QType qType
+        private int _qType;
+        /// <summary>
+        /// סוג שאלה
+        /// </summary>
+
+        public int qType
         {
             get { return _qType; }
-            set { SetValue<QType>("qType", ref _qType, value); }
+            set { SetValue<int>("qType", ref _qType, value); }
         }
         #endregion
 
         #region editorType
         private string _editorType;
+        /// <summary>
+        /// אדיטור לממשק משתמש
+        /// </summary>
+
         public string editorType
         {
             get { return _editorType; }
@@ -213,6 +236,7 @@ namespace Survey.Model
 
         #region comment
         private string _comment;
+
         public string comment
         {
             get { return _comment; }
@@ -222,6 +246,10 @@ namespace Survey.Model
 
         #region qOptCount
         private int _qOptCount;
+        /// <summary>
+        /// לא ברור
+        /// </summary>
+
         public int qOptCount
         {
             get { return _qOptCount; }
@@ -231,6 +259,10 @@ namespace Survey.Model
 
         #region maxAnswerCount
         private int _maxAnswerCount;
+        /// <summary>
+        /// מקסימום תשובות לבחירה במקרה שיש מרובה
+        /// </summary>
+
         public int maxAnswerCount
         {
             get { return _maxAnswerCount; }
@@ -258,6 +290,7 @@ namespace Survey.Model
 
         #region langCode
         private string _langCode;
+
         public string langCode
         {
             get { return _langCode; }
@@ -267,6 +300,7 @@ namespace Survey.Model
 
         #region text
         private string _text;
+
         public string text
         {
             get { return _text; }
@@ -276,6 +310,7 @@ namespace Survey.Model
 
         #region textLong
         private string _textLong;
+
         public string textLong
         {
             get { return _textLong; }
@@ -285,6 +320,7 @@ namespace Survey.Model
 
         #region textPopup
         private string _textPopup;
+
         public string textPopup
         {
             get { return _textPopup; }
@@ -294,6 +330,7 @@ namespace Survey.Model
 
         #region textPrint
         private string _textPrint;
+
         public string textPrint
         {
             get { return _textPrint; }
@@ -303,6 +340,7 @@ namespace Survey.Model
 
         #region textMobile
         private string _textMobile;
+
         public string textMobile
         {
             get { return _textMobile; }
@@ -312,6 +350,7 @@ namespace Survey.Model
 
         #region picture
         private string _picture;
+
         public string picture
         {
             get { return _picture; }
@@ -339,6 +378,7 @@ namespace Survey.Model
 
         #region sheelonId
         private int _sheelonId;
+
         public int sheelonId
         {
             get { return _sheelonId; }
@@ -348,6 +388,7 @@ namespace Survey.Model
 
         #region pageNo
         private int _pageNo;
+
         public int pageNo
         {
             get { return _pageNo; }
@@ -357,6 +398,7 @@ namespace Survey.Model
 
         #region name
         private string _name;
+
         public string name
         {
             get { return _name; }
@@ -366,6 +408,7 @@ namespace Survey.Model
 
         #region langCode
         private string _langCode;
+
         public string langCode
         {
             get { return _langCode; }
@@ -391,26 +434,29 @@ namespace Survey.Model
 
         #region Properties
 
-        #region sheelon
-        private Sheelon _sheelon;
-        public Sheelon sheelon
+        #region sheelonId
+        private int _sheelonId;
+
+        public int sheelonId
         {
-            get { return _sheelon; }
-            set { SetValue<Sheelon>("sheelon", ref _sheelon, value); }
+            get { return _sheelonId; }
+            set { SetValue<int>("sheelonId", ref _sheelonId, value); }
         }
         #endregion
 
-        #region question
-        private Question _question;
-        public Question question
+        #region questionId
+        private int _questionId;
+
+        public int questionId
         {
-            get { return _question; }
-            set { SetValue<Question>("question", ref _question, value); }
+            get { return _questionId; }
+            set { SetValue<int>("questionId", ref _questionId, value); }
         }
         #endregion
 
         #region sortOrder
         private int _sortOrder;
+
         public int sortOrder
         {
             get { return _sortOrder; }
@@ -420,6 +466,7 @@ namespace Survey.Model
 
         #region isMandatory
         private bool _isMandatory;
+
         public bool isMandatory
         {
             get { return _isMandatory; }
@@ -429,6 +476,7 @@ namespace Survey.Model
 
         #region pageNo
         private int _pageNo;
+
         public int pageNo
         {
             get { return _pageNo; }
@@ -454,17 +502,22 @@ namespace Survey.Model
 
         #region Properties
 
-        #region sheelonRelease
-        private SheelonRelease _sheelonRelease;
-        public SheelonRelease sheelonRelease
+        #region sheelonReleaseId
+        private int _sheelonReleaseId;
+        /// <summary>
+        /// קישור לגרסת השאלון
+        /// </summary>
+
+        public int sheelonReleaseId
         {
-            get { return _sheelonRelease; }
-            set { SetValue<SheelonRelease>("sheelonRelease", ref _sheelonRelease, value); }
+            get { return _sheelonReleaseId; }
+            set { SetValue<int>("sheelonReleaseId", ref _sheelonReleaseId, value); }
         }
         #endregion
 
         #region respId
         private int _respId;
+
         public int respId
         {
             get { return _respId; }
@@ -474,6 +527,7 @@ namespace Survey.Model
 
         #region userId
         private int _userId;
+
         public int userId
         {
             get { return _userId; }
@@ -483,6 +537,10 @@ namespace Survey.Model
 
         #region langCode
         private string _langCode;
+        /// <summary>
+        /// שפת מילוי השאלון
+        /// </summary>
+
         public string langCode
         {
             get { return _langCode; }
@@ -492,6 +550,7 @@ namespace Survey.Model
 
         #region depId
         private int _depId;
+
         public int depId
         {
             get { return _depId; }
@@ -501,6 +560,7 @@ namespace Survey.Model
 
         #region period
         private int _period;
+
         public int period
         {
             get { return _period; }
@@ -510,6 +570,7 @@ namespace Survey.Model
 
         #region isFinished
         private bool _isFinished;
+
         public bool isFinished
         {
             get { return _isFinished; }
@@ -519,6 +580,7 @@ namespace Survey.Model
 
         #region lastPage
         private int _lastPage;
+
         public int lastPage
         {
             get { return _lastPage; }
@@ -528,6 +590,7 @@ namespace Survey.Model
 
         #region lastLangCode
         private string _lastLangCode;
+
         public string lastLangCode
         {
             get { return _lastLangCode; }
@@ -553,48 +616,69 @@ namespace Survey.Model
 
         #region Properties
 
-        #region SheelonFill
-        private SheelonFill _SheelonFill;
-        public SheelonFill SheelonFill
+        #region sheelonFillId
+        private int _sheelonFillId;
+        /// <summary>
+        /// קוד מילוי שאלון
+        /// </summary>
+
+        public int sheelonFillId
         {
-            get { return _SheelonFill; }
-            set { SetValue<SheelonFill>("SheelonFill", ref _SheelonFill, value); }
+            get { return _sheelonFillId; }
+            set { SetValue<int>("sheelonFillId", ref _sheelonFillId, value); }
         }
         #endregion
 
-        #region questionRelease
-        private QuestionRelease _questionRelease;
-        public QuestionRelease questionRelease
+        #region questionReleaseId
+        private int _questionReleaseId;
+        /// <summary>
+        /// קישור לגרסת השאלה
+        /// </summary>
+
+        public int questionReleaseId
         {
-            get { return _questionRelease; }
-            set { SetValue<QuestionRelease>("questionRelease", ref _questionRelease, value); }
+            get { return _questionReleaseId; }
+            set { SetValue<int>("questionReleaseId", ref _questionReleaseId, value); }
         }
         #endregion
 
-        #region text
-        private string _text;
-        public string text
+        #region textValue
+        private string _textValue;
+
+        public string textValue
         {
-            get { return _text; }
-            set { SetValue<string>("text", ref _text, value); }
+            get { return _textValue; }
+            set { SetValue<string>("textValue", ref _textValue, value); }
         }
         #endregion
 
-        #region date
-        private DateTime _date;
-        public DateTime date
+        #region dateValue
+        private DateTime _dateValue;
+
+        public DateTime dateValue
         {
-            get { return _date; }
-            set { SetValue<DateTime>("date", ref _date, value); }
+            get { return _dateValue; }
+            set { SetValue<DateTime>("dateValue", ref _dateValue, value); }
         }
         #endregion
 
-        #region number
-        private double _number;
-        public double number
+        #region numberValue
+        private double _numberValue;
+
+        public double numberValue
         {
-            get { return _number; }
-            set { SetValue<double>("number", ref _number, value); }
+            get { return _numberValue; }
+            set { SetValue<double>("numberValue", ref _numberValue, value); }
+        }
+        #endregion
+
+        #region boolValue
+        private string _boolValue;
+
+        public string boolValue
+        {
+            get { return _boolValue; }
+            set { SetValue<string>("boolValue", ref _boolValue, value); }
         }
         #endregion
 
@@ -604,29 +688,37 @@ namespace Survey.Model
 
     #endregion Answer
 
-    #region QuestionRelease
-    public partial class QuestionRelease : ModelBase
+    #region QRelease
+    public partial class QRelease : ModelBase
     {
 
         #region Constructor
-        public QuestionRelease(Session prmSession) : base(prmSession)
+        public QRelease(Session prmSession) : base(prmSession)
         {
         }
         #endregion
 
         #region Properties
 
-        #region qText
-        private QText _qText;
-        public QText qText
+        #region qTextId
+        private int _qTextId;
+        /// <summary>
+        /// קישור לכל הטקסטים
+        /// </summary>
+
+        public int qTextId
         {
-            get { return _qText; }
-            set { SetValue<QText>("qText", ref _qText, value); }
+            get { return _qTextId; }
+            set { SetValue<int>("qTextId", ref _qTextId, value); }
         }
         #endregion
 
         #region fromDate
         private DateTime _fromDate;
+        /// <summary>
+        /// גירסה נכונה מתאריך
+        /// </summary>
+
         public DateTime fromDate
         {
             get { return _fromDate; }
@@ -634,17 +726,25 @@ namespace Survey.Model
         }
         #endregion
 
-        #region question
-        private Question _question;
-        public Question question
+        #region questionId
+        private int _questionId;
+        /// <summary>
+        /// קישור להגדרת שאלה
+        /// </summary>
+
+        public int questionId
         {
-            get { return _question; }
-            set { SetValue<Question>("question", ref _question, value); }
+            get { return _questionId; }
+            set { SetValue<int>("questionId", ref _questionId, value); }
         }
         #endregion
 
         #region minSelections
         private int _minSelections;
+        /// <summary>
+        /// מינימום בחירה
+        /// </summary>
+
         public int minSelections
         {
             get { return _minSelections; }
@@ -654,6 +754,10 @@ namespace Survey.Model
 
         #region rightanswer
         private int _rightanswer;
+        /// <summary>
+        /// מה התשובה הנכונה
+        /// </summary>
+
         public int rightanswer
         {
             get { return _rightanswer; }
@@ -661,20 +765,11 @@ namespace Survey.Model
         }
         #endregion
 
-        #region comments
-        private string _comments;
-        public string comments
-        {
-            get { return _comments; }
-            set { SetValue<string>("comments", ref _comments, value); }
-        }
-        #endregion
-
         #endregion
 
     }
 
-    #endregion QuestionRelease
+    #endregion QRelease
 
     #region QType
     public partial class QType : ModelBase
@@ -690,6 +785,7 @@ namespace Survey.Model
 
         #region typeId
         private int _typeId;
+
         public int typeId
         {
             get { return _typeId; }
@@ -699,6 +795,7 @@ namespace Survey.Model
 
         #region editor
         private string _editor;
+
         public string editor
         {
             get { return _editor; }
@@ -726,6 +823,7 @@ namespace Survey.Model
 
         #region name
         private string _name;
+
         public string name
         {
             get { return _name; }
@@ -735,6 +833,7 @@ namespace Survey.Model
 
         #region description
         private string _description;
+
         public string description
         {
             get { return _description; }
@@ -742,17 +841,19 @@ namespace Survey.Model
         }
         #endregion
 
-        #region parentOrgStruct
-        private OrgStruct _parentOrgStruct;
-        public OrgStruct parentOrgStruct
+        #region parentOrgStructId
+        private int _parentOrgStructId;
+
+        public int parentOrgStructId
         {
-            get { return _parentOrgStruct; }
-            set { SetValue<OrgStruct>("parentOrgStruct", ref _parentOrgStruct, value); }
+            get { return _parentOrgStructId; }
+            set { SetValue<int>("parentOrgStructId", ref _parentOrgStructId, value); }
         }
         #endregion
 
         #region levelNo
         private int _levelNo;
+
         public int levelNo
         {
             get { return _levelNo; }
@@ -762,6 +863,7 @@ namespace Survey.Model
 
         #region levelType
         private LOV _levelType;
+
         public LOV levelType
         {
             get { return _levelType; }
@@ -771,6 +873,7 @@ namespace Survey.Model
 
         #region parentId
         private int _parentId;
+
         public int parentId
         {
             get { return _parentId; }
@@ -783,6 +886,102 @@ namespace Survey.Model
     }
 
     #endregion OrgStruct
+
+    #region QOption
+    public partial class QOption : ModelBase
+    {
+
+        #region Constructor
+        public QOption(Session prmSession) : base(prmSession)
+        {
+        }
+        #endregion
+
+        #region Properties
+
+        #region qTextId
+        private int _qTextId;
+
+        public int qTextId
+        {
+            get { return _qTextId; }
+            set { SetValue<int>("qTextId", ref _qTextId, value); }
+        }
+        #endregion
+
+        #region value
+        private double _value;
+
+        public double value
+        {
+            get { return _value; }
+            set { SetValue<double>("value", ref _value, value); }
+        }
+        #endregion
+
+        #region hasNoInput
+        private bool _hasNoInput;
+
+        public bool hasNoInput
+        {
+            get { return _hasNoInput; }
+            set { SetValue<bool>("hasNoInput", ref _hasNoInput, value); }
+        }
+        #endregion
+
+        #endregion
+
+    }
+
+    #endregion QOption
+
+    #region QReleaseOpt
+    public partial class QReleaseOpt : ModelBase
+    {
+
+        #region Constructor
+        public QReleaseOpt(Session prmSession) : base(prmSession)
+        {
+        }
+        #endregion
+
+        #region Properties
+
+        #region questionReleaseId
+        private int _questionReleaseId;
+
+        public int questionReleaseId
+        {
+            get { return _questionReleaseId; }
+            set { SetValue<int>("questionReleaseId", ref _questionReleaseId, value); }
+        }
+        #endregion
+
+        #region sortOrder
+        private int _sortOrder;
+
+        public int sortOrder
+        {
+            get { return _sortOrder; }
+            set { SetValue<int>("sortOrder", ref _sortOrder, value); }
+        }
+        #endregion
+
+        #region qOptionId
+        private int _qOptionId;
+
+        public int qOptionId
+        {
+            get { return _qOptionId; }
+            set { SetValue<int>("qOptionId", ref _qOptionId, value); }
+        }
+        #endregion
+
+        #endregion
+
+    }
+
+    #endregion QReleaseOpt
 
 }
 

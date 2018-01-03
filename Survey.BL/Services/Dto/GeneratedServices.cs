@@ -55,10 +55,10 @@ namespace Survey.BL.Services.Dto
     }
     #endregion
 
-    #region QuestionRelease
-    public partial class QuestionReleaseDtoService : DynamicFormEntityService<QuestionReleaseDto>
+    #region QRelease
+    public partial class QReleaseDtoService : DynamicFormEntityService<QReleaseDto>
     {
-        public QuestionReleaseDtoService(UserSession us) : base(us)
+        public QReleaseDtoService(UserSession us) : base(us)
         {
         }
     }
@@ -77,6 +77,24 @@ namespace Survey.BL.Services.Dto
     public partial class OrgStructDtoService : DynamicFormEntityService<OrgStructDto>
     {
         public OrgStructDtoService(UserSession us) : base(us)
+        {
+        }
+    }
+    #endregion
+
+    #region QOption
+    public partial class QOptionDtoService : DynamicFormEntityService<QOptionDto>
+    {
+        public QOptionDtoService(UserSession us) : base(us)
+        {
+        }
+    }
+    #endregion
+
+    #region QReleaseOpt
+    public partial class QReleaseOptDtoService : DynamicFormEntityService<QReleaseOptDto>
+    {
+        public QReleaseOptDtoService(UserSession us) : base(us)
         {
         }
     }

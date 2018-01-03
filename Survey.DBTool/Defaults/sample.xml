@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<EntityType Name="Question">
+
+  <!-- Qqat -->
+  <QOption Code="YES" value="1">
+    <QText text="כן" />
+  </QOption>
+  <QOption Code="NO" value="1">
+    <QText text="לא" />
+  </QOption>
+  <QOption Code="OPT1" value="1">
+    <QText text="בחירה 1" />
+  </QOption>
+  <QOption Code="OPT2" value="1">
+    <QText text="בחירה 2" />
+  </QOption>
+  <QOption Code="OPT3" value="1">
+    <QText text="בחירה 3" />
+  </QOption>
+
+  <Question Code="Q1" maxAnswerCount="1" name="שאלת בחירה: בחירה אחת">
+    <QRelease fromDate="2017/01/01" minSelections="1" >
+      <QText text="אנא בחר תשובה אחת מתוך הרשימה" />
+    </QRelease>
+  </Question>
+
+
+</EntityType>

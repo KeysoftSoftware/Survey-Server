@@ -51,10 +51,10 @@ namespace Survey.Model
         #region Fields
         public static class Fields
         {
-            public static string sheelon = "sheelon";
+            public static string sheelonId = "sheelonId";
             public static string fromDate = "fromDate";
             public static string toDate = "toDate";
-            public static string relaeaseVersion = "relaeaseVersion";
+            public static string releaseVersion = "releaseVersion";
             public static string name = "name";
         }
         #endregion
@@ -63,7 +63,7 @@ namespace Survey.Model
         public int sheelonId { get; set; }
         public DateTime fromDate { get; set; }
         public DateTime? toDate { get; set; }
-        public string relaeaseVersion { get; set; }
+        public string releaseVersion { get; set; }
         public string name { get; set; }
 
         #endregion
@@ -96,7 +96,7 @@ namespace Survey.Model
         /// <summary>
         /// סוג שאלה
         /// </summary>
-        public int qTypeId { get; set; }
+        public int qType { get; set; }
         /// <summary>
         /// אדיטור לממשק משתמש
         /// </summary>
@@ -177,17 +177,17 @@ namespace Survey.Model
 
     #endregion PageNames
 
-    #region QuestionRelease
+    #region QRelease
     [KF.Primitives.NonPersist]
-    public partial class QuestionReleaseDto : TBaseEntity<QuestionRelease>
+    public partial class QReleaseDto : TBaseEntity<QRelease>
     {
 
         #region Fields
         public static class Fields
         {
-            public static string qText = "qText";
+            public static string qTextId = "qTextId";
             public static string fromDate = "fromDate";
-            public static string question = "question";
+            public static string questionId = "questionId";
             public static string minSelections = "minSelections";
             public static string rightanswer = "rightanswer";
         }
@@ -219,7 +219,7 @@ namespace Survey.Model
 
     }
 
-    #endregion QuestionRelease
+    #endregion QRelease
 
     #region QType
     [KF.Primitives.NonPersist]
@@ -254,7 +254,7 @@ namespace Survey.Model
         {
             public static string name = "name";
             public static string description = "description";
-            public static string parentOrgStruct = "parentOrgStruct";
+            public static string parentOrgStructId = "parentOrgStructId";
             public static string levelNo = "levelNo";
             public static string levelType = "levelType";
             public static string parentId = "parentId";
@@ -274,6 +274,56 @@ namespace Survey.Model
     }
 
     #endregion OrgStruct
+
+    #region QOption
+    [KF.Primitives.NonPersist]
+    public partial class QOptionDto : TBaseEntity<QOption>
+    {
+
+        #region Fields
+        public static class Fields
+        {
+            public static string qTextId = "qTextId";
+            public static string value = "value";
+            public static string hasNoInput = "hasNoInput";
+        }
+        #endregion
+
+        #region Properties
+        public int qTextId { get; set; }
+        public double value { get; set; }
+        public bool hasNoInput { get; set; }
+
+        #endregion
+
+    }
+
+    #endregion QOption
+
+    #region QReleaseOpt
+    [KF.Primitives.NonPersist]
+    public partial class QReleaseOptDto : TBaseEntity<QReleaseOpt>
+    {
+
+        #region Fields
+        public static class Fields
+        {
+            public static string questionReleaseId = "questionReleaseId";
+            public static string sortOrder = "sortOrder";
+            public static string qOptionId = "qOptionId";
+        }
+        #endregion
+
+        #region Properties
+        public int questionReleaseId { get; set; }
+        public int sortOrder { get; set; }
+        public int qOptionId { get; set; }
+
+        #endregion
+
+    }
+
+    #endregion QReleaseOpt
 
 }
 

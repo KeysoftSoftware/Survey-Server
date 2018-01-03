@@ -82,10 +82,10 @@ namespace Survey.BL.Services.Persistent
     }
     #endregion
 
-    #region QuestionRelease
-    public partial class QuestionReleaseService : KF.Services.EntityService<QuestionRelease>
+    #region QRelease
+    public partial class QReleaseService : KF.Services.EntityService<QRelease>
     {
-        public QuestionReleaseService(UserSession us) : base(us)
+        public QReleaseService(UserSession us) : base(us)
         {
         }
     }
@@ -104,6 +104,24 @@ namespace Survey.BL.Services.Persistent
     public partial class OrgStructService : KF.Services.EntityService<OrgStruct>
     {
         public OrgStructService(UserSession us) : base(us)
+        {
+        }
+    }
+    #endregion
+
+    #region QOption
+    public partial class QOptionService : KF.Services.EntityService<QOption>
+    {
+        public QOptionService(UserSession us) : base(us)
+        {
+        }
+    }
+    #endregion
+
+    #region QReleaseOpt
+    public partial class QReleaseOptService : KF.Services.EntityService<QReleaseOpt>
+    {
+        public QReleaseOptService(UserSession us) : base(us)
         {
         }
     }

@@ -33,33 +33,33 @@ namespace Survey.BL.Services.Dto
         {
             List<OrgStructDto> col = new List<OrgStructDto>();
 
-            try
-            {
-                using (var ctx = DataManager.GetDBContext())
-                {
-                    IQueryable<OrgStruct> nodes;
-                    if (levelId > 0)
-                    {
-                        nodes = ctx.GetAll<OrgStruct>().Where(s => s.parentId == levelId);
-                    }
-                    else
-                    {
-                        nodes = ctx.GetAll<OrgStruct>().Where(s => s.parentId == levelId);
-                    }
+            //try
+            //{
+            //    using (var ctx = DataManager.GetDBContext())
+            //    {
+            //        IQueryable<OrgStruct> nodes;
+            //        if (levelId > 0)
+            //        {
+            //            nodes = ctx.GetAll<OrgStruct>().Where(s => s.parentId == levelId);
+            //        }
+            //        else
+            //        {
+            //            nodes = ctx.GetAll<OrgStruct>().Where(s => s.parentId == levelId);
+            //        }
 
-                    foreach (var node in nodes)
-                    {
-                        var item = new OrgStructDto();
-                        item.From(node);
-                        item.childsCount = ctx.GetAll<OrgStruct>().Where(s => s.parentId == node.Id).Count();
-                        col.Add(item);
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                FL.Error(e);
-            }
+            //        foreach (var node in nodes)
+            //        {
+            //            var item = new OrgStructDto();
+            //            item.From(node);
+            //            item.childsCount = ctx.GetAll<OrgStruct>().Where(s => s.parentId == node.Id).Count();
+            //            col.Add(item);
+            //        }
+            //    }
+            //}
+            //catch (Exception e)
+            //{
+            //    FL.Error(e);
+            //}
             return col;
         }
     }

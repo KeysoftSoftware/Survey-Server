@@ -61,6 +61,7 @@
             this.cmdSampleData.TabIndex = 2;
             this.cmdSampleData.Text = "Sample Data";
             this.cmdSampleData.UseVisualStyleBackColor = true;
+            this.cmdSampleData.Click += new System.EventHandler(this.cmdSampleData_Click);
             // 
             // Form1
             // 
