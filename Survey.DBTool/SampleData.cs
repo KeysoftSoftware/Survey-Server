@@ -104,13 +104,72 @@ namespace Survey.DBTool
                 qro.qOptionId = optNo.Id;
                 qro.sortOrder = 2;
                 srvQRO.SaveInternal(qro, msgs);
-
-
-
-
             }
 
 
+            code = "Q2";
+            var q2 = ctx.GetByCode<Question>(code);
+            if (q2 == null)
+            {
+                var q2Dto = srvQuest.CreateInternal();
+                q2Dto.categoryId = cat.Id;
+                q2Dto.Code = code;
+                q2Dto.maxAnswerCount = 1;
+                q2Dto.name = "שאלת בחירה: בחירה שניה";
+                //q1Dto.qTypeId
+
+                srvQuest.SaveInternal(q2Dto, msgs);
+                if (msgs.hasAnyError)
+                {
+                    // error
+                    return;
+                }
+
+                var qtxt = srvQText.CreateInternal();
+                qtxt.langCode = "he";
+                qtxt.text = "מה סוג התה המועדף עליכם?";
+                srvQText.SaveInternal(qtxt, msgs);
+                if (msgs.hasAnyError)
+                {
+                    // error
+                    return;
+                }
+
+
+
+                var q2r = srvQuestRel.CreateInternal();
+                q2r.fromDate = new DateTime(2017, 1, 1);
+                q2r.minSelections = 1;
+                q2r.questionId = q2Dto.Id;
+                q2r.qTextId = qtxt.Id;
+
+
+                srvQuestRel.SaveInternal(q2r, msgs);
+                if (msgs.hasAnyError)
+                {
+                    // error
+                    return;
+                }
+
+                var qro = srvQRO.CreateInternal();
+                qro.questionReleaseId = q2r.Id;
+                qro.qOptionId = optOpt1.Id;
+                qro.sortOrder = 1;
+                srvQRO.SaveInternal(qro, msgs);
+
+
+                qro = srvQRO.CreateInternal();
+                qro.questionReleaseId = q2r.Id;
+                qro.qOptionId = optOpt2.Id;
+                qro.sortOrder = 2;
+                srvQRO.SaveInternal(qro, msgs);
+
+                qro = srvQRO.CreateInternal();
+                qro.questionReleaseId = q2r.Id;
+                qro.qOptionId = optOpt3.Id;
+                qro.sortOrder = 3;
+                srvQRO.SaveInternal(qro, msgs);
+            }
 
 
         }
