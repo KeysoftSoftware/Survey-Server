@@ -81,12 +81,12 @@
     <Compile Include="Services\Dto\CommonServices.cs" />
     <Compile Include="Services\Dto\GeneratedServices.cs" />
     <Compile Include="Services\Dto\OrgStructDtoService.cs" />
-    <Compile Include="Services\Dto\QuestionExt.cs" />
-    <Compile Include="Services\Dto\SheelonExt.cs" />
+    <Compile Include="Services\Dto\SheelonFillExt.cs" />
     <Compile Include="Services\Forms\FormsService.cs" />
     <Compile Include="Services\Grids\GridsService.cs" />
     <Compile Include="Services\Persistene\GeneratedServices.cs" />
     <Compile Include="Services\Persistene\LOVService.cs" />
+    <Compile Include="Services\Persistene\PersistentExt.cs" />
     <Compile Include="Services\Persistene\UserService.cs" />
     <Compile Include="Services\ServiceUtils.cs" />
   </ItemGroup>
@@ -113,6 +113,10 @@
     <ProjectReference Include="..\Survey.Model\Survey.Model.csproj">
       <Project>{730803ff-3f0d-46e7-bfca-63d282f91076}</Project>
       <Name>Survey.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Survey.Views\Survey.Views.csproj">
+      <Project>{5cd9da8c-a538-47bb-bb7a-d498c571342b}</Project>
+      <Name>Survey.Views</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

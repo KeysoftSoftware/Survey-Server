@@ -19,10 +19,10 @@ namespace Survey.BL.Services.Dto
     }
     #endregion
 
-    #region SheelonRelease
-    public partial class SheelonReleaseDtoService : DynamicFormEntityService<SheelonReleaseDto>
+    #region SRelease
+    public partial class SReleaseDtoService : DynamicFormEntityService<SReleaseDto>
     {
-        public SheelonReleaseDtoService(UserSession us) : base(us)
+        public SReleaseDtoService(UserSession us) : base(us)
         {
         }
     }
@@ -55,19 +55,19 @@ namespace Survey.BL.Services.Dto
     }
     #endregion
 
-    #region SheelonQuestion
-    public partial class SheelonQuestionDtoService : DynamicFormEntityService<SheelonQuestionDto>
+    #region SQRelease
+    public partial class SQReleaseDtoService : DynamicFormEntityService<SQReleaseDto>
     {
-        public SheelonQuestionDtoService(UserSession us) : base(us)
+        public SQReleaseDtoService(UserSession us) : base(us)
         {
         }
     }
     #endregion
 
-    #region SheelonFill
-    public partial class SheelonFillDtoService : DynamicFormEntityService<SheelonFillDto>
+    #region SFill
+    public partial class SFillDtoService : DynamicFormEntityService<SFillDto>
     {
-        public SheelonFillDtoService(UserSession us) : base(us)
+        public SFillDtoService(UserSession us) : base(us)
         {
         }
     }
@@ -109,19 +109,19 @@ namespace Survey.BL.Services.Dto
     }
     #endregion
 
-    #region QReleaseOpt
-    public partial class QReleaseOptDtoService : DynamicFormEntityService<QReleaseOptDto>
+    #region QReleaseOption
+    public partial class QReleaseOptionDtoService : DynamicFormEntityService<QReleaseOptionDto>
     {
-        public QReleaseOptDtoService(UserSession us) : base(us)
+        public QReleaseOptionDtoService(UserSession us) : base(us)
         {
         }
     }
     #endregion
 
-    #region SheelonQHiding
-    public partial class SheelonQHidingDtoService : DynamicFormEntityService<SheelonQHidingDto>
+    #region SQHiding
+    public partial class SQHidingDtoService : DynamicFormEntityService<SQHidingDto>
     {
-        public SheelonQHidingDtoService(UserSession us) : base(us)
+        public SQHidingDtoService(UserSession us) : base(us)
         {
         }
     }

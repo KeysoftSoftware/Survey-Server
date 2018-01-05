@@ -43,9 +43,9 @@ namespace Survey.Model
 
     #endregion Sheelon
 
-    #region SheelonRelease
+    #region SRelease
     [KF.Primitives.NonPersist]
-    public partial class SheelonReleaseDto : TBaseEntity<SheelonRelease>
+    public partial class SReleaseDto : TBaseEntity<SRelease>
     {
 
         #region Fields
@@ -70,7 +70,7 @@ namespace Survey.Model
 
     }
 
-    #endregion SheelonRelease
+    #endregion SRelease
 
     #region Question
     [KF.Primitives.NonPersist]
@@ -82,29 +82,14 @@ namespace Survey.Model
         {
             public static string categoryId = "categoryId";
             public static string name = "name";
-            public static string qType = "qType";
-            public static string editorType = "editorType";
             public static string comment = "comment";
-            public static string qOptCount = "qOptCount";
         }
         #endregion
 
         #region Properties
         public int categoryId { get; set; }
         public string name { get; set; }
-        /// <summary>
-        /// סוג שאלה
-        /// </summary>
-        public int qType { get; set; }
-        /// <summary>
-        /// אדיטור לממשק משתמש
-        /// </summary>
-        public string editorType { get; set; }
         public string comment { get; set; }
-        /// <summary>
-        /// מקסימום תשובות לבחירה במקרה שיש מרובה
-        /// </summary>
-        public int qOptCount { get; set; }
 
         #endregion
 
@@ -172,38 +157,38 @@ namespace Survey.Model
 
     #endregion PageNames
 
-    #region SheelonQuestion
+    #region SQRelease
     [KF.Primitives.NonPersist]
-    public partial class SheelonQuestionDto : TBaseEntity<SheelonQuestion>
+    public partial class SQReleaseDto : TBaseEntity<SQRelease>
     {
 
         #region Fields
         public static class Fields
         {
-            public static string sheelonId = "sheelonId";
-            public static string questionId = "questionId";
-            public static string sortOrder = "sortOrder";
-            public static string isMandatory = "isMandatory";
+            public static string sReleaseId = "sReleaseId";
+            public static string qReleaseId = "qReleaseId";
             public static string pageNo = "pageNo";
+            public static string isMandatory = "isMandatory";
+            public static string sortOrder = "sortOrder";
         }
         #endregion
 
         #region Properties
-        public int sheelonId { get; set; }
-        public int questionId { get; set; }
-        public int sortOrder { get; set; }
-        public bool isMandatory { get; set; }
+        public int sReleaseId { get; set; }
+        public int qReleaseId { get; set; }
         public int pageNo { get; set; }
+        public bool isMandatory { get; set; }
+        public int sortOrder { get; set; }
 
         #endregion
 
     }
 
-    #endregion SheelonQuestion
+    #endregion SQRelease
 
-    #region SheelonFill
+    #region SFill
     [KF.Primitives.NonPersist]
-    public partial class SheelonFillDto : TBaseEntity<SheelonFill>
+    public partial class SFillDto : TBaseEntity<SFill>
     {
 
         #region Fields
@@ -242,7 +227,7 @@ namespace Survey.Model
 
     }
 
-    #endregion SheelonFill
+    #endregion SFill
 
     #region QRelease
     [KF.Primitives.NonPersist]
@@ -252,35 +237,50 @@ namespace Survey.Model
         #region Fields
         public static class Fields
         {
-            public static string qTextId = "qTextId";
-            public static string fromDate = "fromDate";
             public static string questionId = "questionId";
+            public static string fromDate = "fromDate";
+            public static string toDate = "toDate";
+            public static string qTextId = "qTextId";
+            public static string maxOptCount = "maxOptCount";
             public static string minSelections = "minSelections";
             public static string rightanswer = "rightanswer";
+            public static string qTypeId = "qTypeId";
         }
         #endregion
 
         #region Properties
         /// <summary>
-        /// קישור לכל הטקסטים
+        /// קישור להגדרת שאלה
         /// </summary>
-        public int qTextId { get; set; }
+        public int questionId { get; set; }
         /// <summary>
         /// גירסה נכונה מתאריך
         /// </summary>
         public DateTime fromDate { get; set; }
         /// <summary>
-        /// קישור להגדרת שאלה
+        /// \
         /// </summary>
-        public int questionId { get; set; }
+        public DateTime toDate { get; set; }
         /// <summary>
-        /// מינימום בחירה
+        /// קישור לכל הטקסטים
+        /// </summary>
+        public int qTextId { get; set; }
+        /// <summary>
+        /// מספר בחירות
+        /// </summary>
+        public int maxOptCount { get; set; }
+        /// <summary>
+        /// מינימום בחירות
         /// </summary>
         public int minSelections { get; set; }
         /// <summary>
         /// מה התשובה הנכונה
         /// </summary>
         public int rightanswer { get; set; }
+        /// <summary>
+        /// סןג הרכיב להצגה בממשק משתמש
+        /// </summary>
+        public int qTypeId { get; set; }
 
         #endregion
 
@@ -367,22 +367,22 @@ namespace Survey.Model
 
     #endregion QOption
 
-    #region QReleaseOpt
+    #region QReleaseOption
     [KF.Primitives.NonPersist]
-    public partial class QReleaseOptDto : TBaseEntity<QReleaseOpt>
+    public partial class QReleaseOptionDto : TBaseEntity<QReleaseOption>
     {
 
         #region Fields
         public static class Fields
         {
-            public static string questionReleaseId = "questionReleaseId";
+            public static string qReleaseId = "qReleaseId";
             public static string sortOrder = "sortOrder";
             public static string qOptionId = "qOptionId";
         }
         #endregion
 
         #region Properties
-        public int questionReleaseId { get; set; }
+        public int qReleaseId { get; set; }
         public int sortOrder { get; set; }
         public int qOptionId { get; set; }
 
@@ -390,11 +390,11 @@ namespace Survey.Model
 
     }
 
-    #endregion QReleaseOpt
+    #endregion QReleaseOption
 
-    #region SheelonQHiding
+    #region SQHiding
     [KF.Primitives.NonPersist]
-    public partial class SheelonQHidingDto : TBaseEntity<SheelonQHiding>
+    public partial class SQHidingDto : TBaseEntity<SQHiding>
     {
 
         #region Fields
@@ -431,7 +431,7 @@ namespace Survey.Model
 
     }
 
-    #endregion SheelonQHiding
+    #endregion SQHiding
 
 }
 

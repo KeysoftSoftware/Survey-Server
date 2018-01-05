@@ -108,12 +108,12 @@ namespace Survey.Model
 
     #endregion Sheelon
 
-    #region SheelonRelease
-    public partial class SheelonRelease : ModelBase
+    #region SRelease
+    public partial class SRelease : ModelBase
     {
 
         #region Constructor
-        public SheelonRelease(Session prmSession) : base(prmSession)
+        public SRelease(Session prmSession) : base(prmSession)
         {
         }
         #endregion
@@ -174,7 +174,7 @@ namespace Survey.Model
 
     }
 
-    #endregion SheelonRelease
+    #endregion SRelease
 
     #region Question
     public partial class Question : ModelBase
@@ -208,32 +208,6 @@ namespace Survey.Model
         }
         #endregion
 
-        #region qType
-        private int _qType;
-        /// <summary>
-        /// סוג שאלה
-        /// </summary>
-
-        public int qType
-        {
-            get { return _qType; }
-            set { SetValue<int>("qType", ref _qType, value); }
-        }
-        #endregion
-
-        #region editorType
-        private string _editorType;
-        /// <summary>
-        /// אדיטור לממשק משתמש
-        /// </summary>
-
-        public string editorType
-        {
-            get { return _editorType; }
-            set { SetValue<string>("editorType", ref _editorType, value); }
-        }
-        #endregion
-
         #region comment
         private string _comment;
 
@@ -241,19 +215,6 @@ namespace Survey.Model
         {
             get { return _comment; }
             set { SetValue<string>("comment", ref _comment, value); }
-        }
-        #endregion
-
-        #region qOptCount
-        private int _qOptCount;
-        /// <summary>
-        /// מקסימום תשובות לבחירה במקרה שיש מרובה
-        /// </summary>
-
-        public int qOptCount
-        {
-            get { return _qOptCount; }
-            set { SetValue<int>("qOptCount", ref _qOptCount, value); }
         }
         #endregion
 
@@ -409,55 +370,35 @@ namespace Survey.Model
 
     #endregion PageNames
 
-    #region SheelonQuestion
-    public partial class SheelonQuestion : ModelBase
+    #region SQRelease
+    public partial class SQRelease : ModelBase
     {
 
         #region Constructor
-        public SheelonQuestion(Session prmSession) : base(prmSession)
+        public SQRelease(Session prmSession) : base(prmSession)
         {
         }
         #endregion
 
         #region Properties
 
-        #region sheelonId
-        private int _sheelonId;
+        #region sReleaseId
+        private int _sReleaseId;
 
-        public int sheelonId
+        public int sReleaseId
         {
-            get { return _sheelonId; }
-            set { SetValue<int>("sheelonId", ref _sheelonId, value); }
+            get { return _sReleaseId; }
+            set { SetValue<int>("sReleaseId", ref _sReleaseId, value); }
         }
         #endregion
 
-        #region questionId
-        private int _questionId;
+        #region qReleaseId
+        private int _qReleaseId;
 
-        public int questionId
+        public int qReleaseId
         {
-            get { return _questionId; }
-            set { SetValue<int>("questionId", ref _questionId, value); }
-        }
-        #endregion
-
-        #region sortOrder
-        private int _sortOrder;
-
-        public int sortOrder
-        {
-            get { return _sortOrder; }
-            set { SetValue<int>("sortOrder", ref _sortOrder, value); }
-        }
-        #endregion
-
-        #region isMandatory
-        private bool _isMandatory;
-
-        public bool isMandatory
-        {
-            get { return _isMandatory; }
-            set { SetValue<bool>("isMandatory", ref _isMandatory, value); }
+            get { return _qReleaseId; }
+            set { SetValue<int>("qReleaseId", ref _qReleaseId, value); }
         }
         #endregion
 
@@ -471,18 +412,38 @@ namespace Survey.Model
         }
         #endregion
 
+        #region isMandatory
+        private bool _isMandatory;
+
+        public bool isMandatory
+        {
+            get { return _isMandatory; }
+            set { SetValue<bool>("isMandatory", ref _isMandatory, value); }
+        }
+        #endregion
+
+        #region sortOrder
+        private int _sortOrder;
+
+        public int sortOrder
+        {
+            get { return _sortOrder; }
+            set { SetValue<int>("sortOrder", ref _sortOrder, value); }
+        }
+        #endregion
+
         #endregion
 
     }
 
-    #endregion SheelonQuestion
+    #endregion SQRelease
 
-    #region SheelonFill
-    public partial class SheelonFill : ModelBase
+    #region SFill
+    public partial class SFill : ModelBase
     {
 
         #region Constructor
-        public SheelonFill(Session prmSession) : base(prmSession)
+        public SFill(Session prmSession) : base(prmSession)
         {
         }
         #endregion
@@ -589,7 +550,7 @@ namespace Survey.Model
 
     }
 
-    #endregion SheelonFill
+    #endregion SFill
 
     #region Answer
     public partial class Answer : ModelBase
@@ -687,16 +648,16 @@ namespace Survey.Model
 
         #region Properties
 
-        #region qTextId
-        private int _qTextId;
+        #region questionId
+        private int _questionId;
         /// <summary>
-        /// קישור לכל הטקסטים
+        /// קישור להגדרת שאלה
         /// </summary>
 
-        public int qTextId
+        public int questionId
         {
-            get { return _qTextId; }
-            set { SetValue<int>("qTextId", ref _qTextId, value); }
+            get { return _questionId; }
+            set { SetValue<int>("questionId", ref _questionId, value); }
         }
         #endregion
 
@@ -713,23 +674,49 @@ namespace Survey.Model
         }
         #endregion
 
-        #region questionId
-        private int _questionId;
+        #region toDate
+        private DateTime _toDate;
         /// <summary>
-        /// קישור להגדרת שאלה
+        /// \
         /// </summary>
 
-        public int questionId
+        public DateTime toDate
         {
-            get { return _questionId; }
-            set { SetValue<int>("questionId", ref _questionId, value); }
+            get { return _toDate; }
+            set { SetValue<DateTime>("toDate", ref _toDate, value); }
+        }
+        #endregion
+
+        #region qTextId
+        private int _qTextId;
+        /// <summary>
+        /// קישור לכל הטקסטים
+        /// </summary>
+
+        public int qTextId
+        {
+            get { return _qTextId; }
+            set { SetValue<int>("qTextId", ref _qTextId, value); }
+        }
+        #endregion
+
+        #region maxOptCount
+        private int _maxOptCount;
+        /// <summary>
+        /// מספר בחירות
+        /// </summary>
+
+        public int maxOptCount
+        {
+            get { return _maxOptCount; }
+            set { SetValue<int>("maxOptCount", ref _maxOptCount, value); }
         }
         #endregion
 
         #region minSelections
         private int _minSelections;
         /// <summary>
-        /// מינימום בחירה
+        /// מינימום בחירות
         /// </summary>
 
         public int minSelections
@@ -749,6 +736,19 @@ namespace Survey.Model
         {
             get { return _rightanswer; }
             set { SetValue<int>("rightanswer", ref _rightanswer, value); }
+        }
+        #endregion
+
+        #region qTypeId
+        private int _qTypeId;
+        /// <summary>
+        /// סןג הרכיב להצגה בממשק משתמש
+        /// </summary>
+
+        public int qTypeId
+        {
+            get { return _qTypeId; }
+            set { SetValue<int>("qTypeId", ref _qTypeId, value); }
         }
         #endregion
 
@@ -922,25 +922,25 @@ namespace Survey.Model
 
     #endregion QOption
 
-    #region QReleaseOpt
-    public partial class QReleaseOpt : ModelBase
+    #region QReleaseOption
+    public partial class QReleaseOption : ModelBase
     {
 
         #region Constructor
-        public QReleaseOpt(Session prmSession) : base(prmSession)
+        public QReleaseOption(Session prmSession) : base(prmSession)
         {
         }
         #endregion
 
         #region Properties
 
-        #region questionReleaseId
-        private int _questionReleaseId;
+        #region qReleaseId
+        private int _qReleaseId;
 
-        public int questionReleaseId
+        public int qReleaseId
         {
-            get { return _questionReleaseId; }
-            set { SetValue<int>("questionReleaseId", ref _questionReleaseId, value); }
+            get { return _qReleaseId; }
+            set { SetValue<int>("qReleaseId", ref _qReleaseId, value); }
         }
         #endregion
 
@@ -968,14 +968,14 @@ namespace Survey.Model
 
     }
 
-    #endregion QReleaseOpt
+    #endregion QReleaseOption
 
-    #region SheelonQHiding
-    public partial class SheelonQHiding : ModelBase
+    #region SQHiding
+    public partial class SQHiding : ModelBase
     {
 
         #region Constructor
-        public SheelonQHiding(Session prmSession) : base(prmSession)
+        public SQHiding(Session prmSession) : base(prmSession)
         {
         }
         #endregion
@@ -1048,7 +1048,7 @@ namespace Survey.Model
 
     }
 
-    #endregion SheelonQHiding
+    #endregion SQHiding
 
 }
 

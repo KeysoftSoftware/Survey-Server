@@ -6,14 +6,12 @@ using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Http.OData;
 using Survey.Model;
-using Survey.Model.Query;
+
 
 namespace Survey.API.Controllers
 {
     public class BaseODataController : ODataController
     {
-
-        protected SurveyDBEntities db = new SurveyDBEntities();
 
         #region UserSession
         private UserSession _UserSession;

@@ -1,4 +1,4 @@
-﻿using Survey.Model.Query;
+﻿using Survey.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,36 +18,18 @@ namespace Survey.API.Controllers
         {
             var us =  base.UserSession;
             if (us.Env.user == null) return null;
-            return db.View_Sheelon;
+            var ctx = BL.DataManager.GetDBContext();
+            return ctx.GetAll<View_Sheelon>();
         }
 
         // GET: odata/View_Employee(5)
-        [EnableQuery]
-        public SingleResult<View_Sheelon> GetView_Sheelon([FromODataUri] int key)
-        {
-            return SingleResult.Create(db.View_Sheelon.Where(view_Employee => view_Employee.Id == key));
-        }
+        //[EnableQuery]
+        //public SingleResult<View_Sheelon> GetView_Sheelon([FromODataUri] int key)
+        //{
+        //    return SingleResult.Create(db.View_Sheelon.Where(view_Employee => view_Employee.Id == key));
+        //}
 
     }
 
-    public class View_SheelonReleaseController : BaseODataController
-    {
-       
-        // GET: odata/View_Employee
-        [EnableQuery]
-        public IQueryable<View_SheelonRelease> GetView_SheelonRelease()
-        {
-            var us = UserSession;
-            if (us.Env.user == null) return null;
-            return db.View_SheelonRelease;
-        }
-
-        // GET: odata/View_Employee(5)
-        [EnableQuery]
-        public SingleResult<View_SheelonRelease> GetView_SheelonRelease([FromODataUri] int key)
-        {
-            return SingleResult.Create(db.View_SheelonRelease.Where(View_Lov => View_Lov.Id == key));
-        }
-
-    }
+   
 }

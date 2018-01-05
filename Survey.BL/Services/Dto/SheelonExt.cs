@@ -14,6 +14,7 @@ namespace Survey.BL.Services.Dto
     #region SheelonDtoService
     public partial class SheelonDtoService
     {
+        #region OnSaveNonPersistentEntity
         protected override void OnSaveNonPersistentEntity(SheelonDto entity, IReportedMsgs msgs)
         {
             try
@@ -68,7 +69,8 @@ namespace Survey.BL.Services.Dto
 
             _UserSession.FlushChanges();
             dto.Id = obj.Id;
-        }
+        } 
+        #endregion
 
     }
     #endregion
@@ -76,6 +78,7 @@ namespace Survey.BL.Services.Dto
     #region SheelonReleaseDtoService
     public partial class SheelonReleaseDtoService
     {
+        #region OnSaveNonPersistentEntity
         protected override void OnSaveNonPersistentEntity(SheelonReleaseDto entity, IReportedMsgs msgs)
         {
             try
@@ -126,7 +129,8 @@ namespace Survey.BL.Services.Dto
 
             _UserSession.SaveChanges();
             dto.Id = obj.Id;
-        }
+        } 
+        #endregion
     }
     #endregion
 

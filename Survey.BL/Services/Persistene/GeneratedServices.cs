@@ -19,10 +19,10 @@ namespace Survey.BL.Services.Persistent
     }
     #endregion
 
-    #region SheelonRelease
-    public partial class SheelonReleaseService : KF.Services.EntityService<SheelonRelease>
+    #region SRelease
+    public partial class SReleaseService : KF.Services.EntityService<SRelease>
     {
-        public SheelonReleaseService(UserSession us) : base(us)
+        public SReleaseService(UserSession us) : base(us)
         {
         }
     }
@@ -55,19 +55,19 @@ namespace Survey.BL.Services.Persistent
     }
     #endregion
 
-    #region SheelonQuestion
-    public partial class SheelonQuestionService : KF.Services.EntityService<SheelonQuestion>
+    #region SQRelease
+    public partial class SQReleaseService : KF.Services.EntityService<SQRelease>
     {
-        public SheelonQuestionService(UserSession us) : base(us)
+        public SQReleaseService(UserSession us) : base(us)
         {
         }
     }
     #endregion
 
-    #region SheelonFill
-    public partial class SheelonFillService : KF.Services.EntityService<SheelonFill>
+    #region SFill
+    public partial class SFillService : KF.Services.EntityService<SFill>
     {
-        public SheelonFillService(UserSession us) : base(us)
+        public SFillService(UserSession us) : base(us)
         {
         }
     }
@@ -118,19 +118,19 @@ namespace Survey.BL.Services.Persistent
     }
     #endregion
 
-    #region QReleaseOpt
-    public partial class QReleaseOptService : KF.Services.EntityService<QReleaseOpt>
+    #region QReleaseOption
+    public partial class QReleaseOptionService : KF.Services.EntityService<QReleaseOption>
     {
-        public QReleaseOptService(UserSession us) : base(us)
+        public QReleaseOptionService(UserSession us) : base(us)
         {
         }
     }
     #endregion
 
-    #region SheelonQHiding
-    public partial class SheelonQHidingService : KF.Services.EntityService<SheelonQHiding>
+    #region SQHiding
+    public partial class SQHidingService : KF.Services.EntityService<SQHiding>
     {
-        public SheelonQHidingService(UserSession us) : base(us)
+        public SQHidingService(UserSession us) : base(us)
         {
         }
     }

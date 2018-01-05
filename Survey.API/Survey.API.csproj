@@ -175,13 +175,13 @@
       <Project>{33358d6d-517a-425d-92f7-d24ef009872a}</Project>
       <Name>Survey.BL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Survey.Model.Query\Survey.Model.Query.csproj">
-      <Project>{f9be93bd-429e-43fc-8601-0b8f62eac0a5}</Project>
-      <Name>Survey.Model.Query</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Survey.Model\Survey.Model.csproj">
       <Project>{730803ff-3f0d-46e7-bfca-63d282f91076}</Project>
       <Name>Survey.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Survey.Views\Survey.Views.csproj">
+      <Project>{5cd9da8c-a538-47bb-bb7a-d498c571342b}</Project>
+      <Name>Survey.Views</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

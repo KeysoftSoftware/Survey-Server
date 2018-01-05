@@ -1,5 +1,5 @@
 ﻿using Survey.Model;
-using Survey.Model.Query;
+using Survey.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
