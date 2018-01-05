@@ -55,6 +55,24 @@ namespace Survey.BL.Services.Dto
     }
     #endregion
 
+    #region SheelonQuestion
+    public partial class SheelonQuestionDtoService : DynamicFormEntityService<SheelonQuestionDto>
+    {
+        public SheelonQuestionDtoService(UserSession us) : base(us)
+        {
+        }
+    }
+    #endregion
+
+    #region SheelonFill
+    public partial class SheelonFillDtoService : DynamicFormEntityService<SheelonFillDto>
+    {
+        public SheelonFillDtoService(UserSession us) : base(us)
+        {
+        }
+    }
+    #endregion
+
     #region QRelease
     public partial class QReleaseDtoService : DynamicFormEntityService<QReleaseDto>
     {
@@ -95,6 +113,15 @@ namespace Survey.BL.Services.Dto
     public partial class QReleaseOptDtoService : DynamicFormEntityService<QReleaseOptDto>
     {
         public QReleaseOptDtoService(UserSession us) : base(us)
+        {
+        }
+    }
+    #endregion
+
+    #region SheelonQHiding
+    public partial class SheelonQHidingDtoService : DynamicFormEntityService<SheelonQHidingDto>
+    {
+        public SheelonQHidingDtoService(UserSession us) : base(us)
         {
         }
     }

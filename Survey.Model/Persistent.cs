@@ -247,26 +247,13 @@ namespace Survey.Model
         #region qOptCount
         private int _qOptCount;
         /// <summary>
-        /// לא ברור
+        /// מקסימום תשובות לבחירה במקרה שיש מרובה
         /// </summary>
 
         public int qOptCount
         {
             get { return _qOptCount; }
             set { SetValue<int>("qOptCount", ref _qOptCount, value); }
-        }
-        #endregion
-
-        #region maxAnswerCount
-        private int _maxAnswerCount;
-        /// <summary>
-        /// מקסימום תשובות לבחירה במקרה שיש מרובה
-        /// </summary>
-
-        public int maxAnswerCount
-        {
-            get { return _maxAnswerCount; }
-            set { SetValue<int>("maxAnswerCount", ref _maxAnswerCount, value); }
         }
         #endregion
 
@@ -982,6 +969,86 @@ namespace Survey.Model
     }
 
     #endregion QReleaseOpt
+
+    #region SheelonQHiding
+    public partial class SheelonQHiding : ModelBase
+    {
+
+        #region Constructor
+        public SheelonQHiding(Session prmSession) : base(prmSession)
+        {
+        }
+        #endregion
+
+        #region Properties
+
+        #region sheelonId
+        private int _sheelonId;
+
+        public int sheelonId
+        {
+            get { return _sheelonId; }
+            set { SetValue<int>("sheelonId", ref _sheelonId, value); }
+        }
+        #endregion
+
+        #region sourceQuestionId
+        private int _sourceQuestionId;
+        /// <summary>
+        /// שאלת המקור אשר תשובה שלה תגרום לטריגר
+        /// </summary>
+
+        public int sourceQuestionId
+        {
+            get { return _sourceQuestionId; }
+            set { SetValue<int>("sourceQuestionId", ref _sourceQuestionId, value); }
+        }
+        #endregion
+
+        #region targetQuestionId
+        private int _targetQuestionId;
+        /// <summary>
+        /// שאלת היעד להסתרה
+        /// </summary>
+
+        public int targetQuestionId
+        {
+            get { return _targetQuestionId; }
+            set { SetValue<int>("targetQuestionId", ref _targetQuestionId, value); }
+        }
+        #endregion
+
+        #region sourceQuestionAnswer
+        private double _sourceQuestionAnswer;
+        /// <summary>
+        /// התשובה שתביא להסתרה
+        /// </summary>
+
+        public double sourceQuestionAnswer
+        {
+            get { return _sourceQuestionAnswer; }
+            set { SetValue<double>("sourceQuestionAnswer", ref _sourceQuestionAnswer, value); }
+        }
+        #endregion
+
+        #region hideFlag
+        private bool _hideFlag;
+        /// <summary>
+        /// האם להסתיר
+        /// </summary>
+
+        public bool hideFlag
+        {
+            get { return _hideFlag; }
+            set { SetValue<bool>("hideFlag", ref _hideFlag, value); }
+        }
+        #endregion
+
+        #endregion
+
+    }
+
+    #endregion SheelonQHiding
 
 }
 

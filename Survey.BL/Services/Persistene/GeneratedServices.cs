@@ -127,5 +127,14 @@ namespace Survey.BL.Services.Persistent
     }
     #endregion
 
+    #region SheelonQHiding
+    public partial class SheelonQHidingService : KF.Services.EntityService<SheelonQHiding>
+    {
+        public SheelonQHidingService(UserSession us) : base(us)
+        {
+        }
+    }
+    #endregion
+
 }
 

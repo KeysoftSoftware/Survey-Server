@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Survey.DBTool
 {
-    class SampleData 
+    class SampleData
     {
         public static ReportedMsgs CreateSampleData(UserSession us)
         {
@@ -40,11 +40,14 @@ namespace Survey.DBTool
             var srvQOpt = us.GetService<QOptionDtoService>();
             var srvQRO = us.GetService<QReleaseOptDtoService>();
 
+            var srvQType = us.GetService<QTypeDtoService>();
+
+
             var optYes = GetOption(ctx, us, "YES", "כן", 1, msgs);
-            var optNo = GetOption(ctx, us, "NO", "לא", 1, msgs);
-            var optOpt1 = GetOption(ctx, us, "OPT1", "בחירה 1", 1, msgs);
-            var optOpt2 = GetOption(ctx, us, "OPT2", "בחירה 2", 1, msgs);
-            var optOpt3 = GetOption(ctx, us, "OPT3", "בחירה 3", 1, msgs);
+            var optNo = GetOption(ctx, us, "NO", "לא", 2, msgs);
+            var optOpt1 = GetOption(ctx, us, "OPT1", "כדורגל", 1, msgs);
+            var optOpt2 = GetOption(ctx, us, "OPT2", "כדורסל", 2, msgs);
+            var optOpt3 = GetOption(ctx, us, "OPT3", "כדורעף", 3, msgs);
 
 
 
@@ -55,8 +58,8 @@ namespace Survey.DBTool
                 var q1Dto = srvQuest.CreateInternal();
                 q1Dto.categoryId = cat.Id;
                 q1Dto.Code = "Q1";
-                q1Dto.maxAnswerCount = 1;
-                q1Dto.name = "שאלת בחירה: בחירה אחת";
+                q1Dto.name = "האם אתם אוהבים ספורט?";
+                q1Dto.qOptCount = 3;
                 //q1Dto.qTypeId
 
                 srvQuest.SaveInternal(q1Dto, msgs);
@@ -68,7 +71,7 @@ namespace Survey.DBTool
 
                 var qtxt = srvQText.CreateInternal();
                 qtxt.langCode = "he";
-                qtxt.text = "האם אתם אוהבים תה?";
+                qtxt.text = "האם אתם אוהבים ספורט?";
                 srvQText.SaveInternal(qtxt, msgs);
                 if (msgs.hasAnyError)
                 {
@@ -83,7 +86,7 @@ namespace Survey.DBTool
                 q1r.minSelections = 1;
                 q1r.questionId = q1Dto.Id;
                 q1r.qTextId = qtxt.Id;
-                
+
 
                 srvQuestRel.SaveInternal(q1r, msgs);
                 if (msgs.hasAnyError)
@@ -97,13 +100,15 @@ namespace Survey.DBTool
                 qro.qOptionId = optYes.Id;
                 qro.sortOrder = 1;
                 srvQRO.SaveInternal(qro, msgs);
-                
+
 
                 qro = srvQRO.CreateInternal();
                 qro.questionReleaseId = q1r.Id;
                 qro.qOptionId = optNo.Id;
                 qro.sortOrder = 2;
                 srvQRO.SaveInternal(qro, msgs);
+
+                q1 = ctx.GetByCode<Question>(code);
             }
 
 
@@ -114,8 +119,8 @@ namespace Survey.DBTool
                 var q2Dto = srvQuest.CreateInternal();
                 q2Dto.categoryId = cat.Id;
                 q2Dto.Code = code;
-                q2Dto.maxAnswerCount = 1;
                 q2Dto.name = "שאלת בחירה: בחירה שניה";
+                q2Dto.qOptCount = 1;
                 //q1Dto.qTypeId
 
                 srvQuest.SaveInternal(q2Dto, msgs);
@@ -127,7 +132,7 @@ namespace Survey.DBTool
 
                 var qtxt = srvQText.CreateInternal();
                 qtxt.langCode = "he";
-                qtxt.text = "מה סוג התה המועדף עליכם?";
+                qtxt.text = "סמנו לפחות בחירה אחת";
                 srvQText.SaveInternal(qtxt, msgs);
                 if (msgs.hasAnyError)
                 {
@@ -169,13 +174,68 @@ namespace Survey.DBTool
                 qro.qOptionId = optOpt3.Id;
                 qro.sortOrder = 3;
                 srvQRO.SaveInternal(qro, msgs);
+
+                q2 = ctx.GetByCode<Question>(code);
             }
 
+
+            var srvSheelon = us.GetService<SheelonDtoService>();
+            var srvSheelonRelease = us.GetService<SheelonReleaseDtoService>();
+            var srvSheelonQuestion = us.GetService<SheelonQuestionDtoService>();
+            var srvSheelonQHiding = us.GetService<SheelonQHidingDtoService>();
+
+
+            code = "S1";
+            var s1 = ctx.GetByCode<Sheelon>(code);
+            if (s1 == null)
+            {
+                var dto = srvSheelon.CreateInternal();
+                dto.Code = code;
+                dto.name = "שאלון תחביבים";
+                dto.loginManagerId = 1;
+                dto.openning = "";
+                dto.shared = true;
+                dto.userId = 1;
+                srvSheelon.SaveInternal(dto, msgs);
+                
+
+                var dtoRel = srvSheelonRelease.CreateInternal();
+                dtoRel.fromDate = new DateTime(2017, 1, 1);
+                dtoRel.name = dto.name;
+                dtoRel.releaseVersion = "1.0.0";
+                dtoRel.sheelonId = dto.Id;
+                srvSheelonRelease.SaveInternal(dtoRel, msgs);
+
+                var sq = srvSheelonQuestion.CreateInternal();
+                sq.isMandatory = true;
+                sq.pageNo = 1;
+                sq.questionId = q1.Id;
+                sq.sheelonId = dto.Id;
+                sq.sortOrder = 1;
+                srvSheelonQuestion.SaveInternal(sq, msgs);
+
+                sq = srvSheelonQuestion.CreateInternal();
+                sq.isMandatory = false;
+                sq.pageNo = 1;
+                sq.questionId = q2.Id;
+                sq.sheelonId = dto.Id;
+                sq.sortOrder = 2;
+                srvSheelonQuestion.SaveInternal(sq, msgs);
+
+                var sqh = srvSheelonQHiding.CreateInternal();
+                sqh.hideFlag = true;
+                sqh.sheelonId = dto.Id;
+                sqh.sourceQuestionId = q1.Id;
+                sqh.targetQuestionId = q2.Id;
+                sqh.sourceQuestionAnswer = 2;
+                srvSheelonQHiding.SaveInternal(sqh, msgs);
+
+            }
 
         }
 
         private static QOption GetOption(DataManager.DataContext ctx, UserSession us,
-            string code, string text , double value, ReportedMsgs msgs)
+            string code, string text, double value, ReportedMsgs msgs)
         {
             var obj = ctx.GetByCode<QOption>(code);
             if (obj == null)

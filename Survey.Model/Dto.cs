@@ -86,7 +86,6 @@ namespace Survey.Model
             public static string editorType = "editorType";
             public static string comment = "comment";
             public static string qOptCount = "qOptCount";
-            public static string maxAnswerCount = "maxAnswerCount";
         }
         #endregion
 
@@ -103,13 +102,9 @@ namespace Survey.Model
         public string editorType { get; set; }
         public string comment { get; set; }
         /// <summary>
-        /// לא ברור
-        /// </summary>
-        public int qOptCount { get; set; }
-        /// <summary>
         /// מקסימום תשובות לבחירה במקרה שיש מרובה
         /// </summary>
-        public int maxAnswerCount { get; set; }
+        public int qOptCount { get; set; }
 
         #endregion
 
@@ -176,6 +171,78 @@ namespace Survey.Model
     }
 
     #endregion PageNames
+
+    #region SheelonQuestion
+    [KF.Primitives.NonPersist]
+    public partial class SheelonQuestionDto : TBaseEntity<SheelonQuestion>
+    {
+
+        #region Fields
+        public static class Fields
+        {
+            public static string sheelonId = "sheelonId";
+            public static string questionId = "questionId";
+            public static string sortOrder = "sortOrder";
+            public static string isMandatory = "isMandatory";
+            public static string pageNo = "pageNo";
+        }
+        #endregion
+
+        #region Properties
+        public int sheelonId { get; set; }
+        public int questionId { get; set; }
+        public int sortOrder { get; set; }
+        public bool isMandatory { get; set; }
+        public int pageNo { get; set; }
+
+        #endregion
+
+    }
+
+    #endregion SheelonQuestion
+
+    #region SheelonFill
+    [KF.Primitives.NonPersist]
+    public partial class SheelonFillDto : TBaseEntity<SheelonFill>
+    {
+
+        #region Fields
+        public static class Fields
+        {
+            public static string sheelonReleaseId = "sheelonReleaseId";
+            public static string respId = "respId";
+            public static string userId = "userId";
+            public static string langCode = "langCode";
+            public static string depId = "depId";
+            public static string period = "period";
+            public static string isFinished = "isFinished";
+            public static string lastPage = "lastPage";
+            public static string lastLangCode = "lastLangCode";
+        }
+        #endregion
+
+        #region Properties
+        /// <summary>
+        /// קישור לגרסת השאלון
+        /// </summary>
+        public int sheelonReleaseId { get; set; }
+        public int respId { get; set; }
+        public int userId { get; set; }
+        /// <summary>
+        /// שפת מילוי השאלון
+        /// </summary>
+        public string langCode { get; set; }
+        public int depId { get; set; }
+        public int period { get; set; }
+        public bool isFinished { get; set; }
+        public int lastPage { get; set; }
+        public string lastLangCode { get; set; }
+
+        #endregion
+
+    }
+
+    #endregion SheelonFill
 
     #region QRelease
     [KF.Primitives.NonPersist]
@@ -324,6 +391,47 @@ namespace Survey.Model
     }
 
     #endregion QReleaseOpt
+
+    #region SheelonQHiding
+    [KF.Primitives.NonPersist]
+    public partial class SheelonQHidingDto : TBaseEntity<SheelonQHiding>
+    {
+
+        #region Fields
+        public static class Fields
+        {
+            public static string sheelonId = "sheelonId";
+            public static string sourceQuestionId = "sourceQuestionId";
+            public static string targetQuestionId = "targetQuestionId";
+            public static string sourceQuestionAnswer = "sourceQuestionAnswer";
+            public static string hideFlag = "hideFlag";
+        }
+        #endregion
+
+        #region Properties
+        public int sheelonId { get; set; }
+        /// <summary>
+        /// שאלת המקור אשר תשובה שלה תגרום לטריגר
+        /// </summary>
+        public int sourceQuestionId { get; set; }
+        /// <summary>
+        /// שאלת היעד להסתרה
+        /// </summary>
+        public int targetQuestionId { get; set; }
+        /// <summary>
+        /// התשובה שתביא להסתרה
+        /// </summary>
+        public double sourceQuestionAnswer { get; set; }
+        /// <summary>
+        /// האם להסתיר
+        /// </summary>
+        public bool hideFlag { get; set; }
+
+        #endregion
+
+    }
+
+    #endregion SheelonQHiding
 
 }
 
