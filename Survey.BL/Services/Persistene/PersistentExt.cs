@@ -13,7 +13,10 @@ namespace Survey.BL.Services.Persistene
         #region GetSheelonReleaseByDate
         internal static SRelease GetSheelonReleaseByDate(DataManager.DataContext ctx, int sheelonId, DateTime date)
         {
-            return ctx.GetAll<SRelease>().Where(s => s.fromDate >= date && s.toDate <= date).FirstOrDefault();
+            var obj = ctx.GetAll<SRelease>().Where(s => s.fromDate >= date && s.toDate <= date).FirstOrDefault();
+            if (obj == null) obj = ctx.GetAll<SRelease>().Where(s => s.fromDate >= date).FirstOrDefault();
+            if (obj == null) obj = ctx.GetById<SRelease>(sheelonId);
+            return obj; //ctx.GetAll<SRelease>().Where(s => s.fromDate >= date && s.toDate <= date).FirstOrDefault();
         } 
         #endregion
 

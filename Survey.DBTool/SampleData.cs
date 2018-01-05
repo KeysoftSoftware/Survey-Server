@@ -18,10 +18,16 @@ namespace Survey.DBTool
         public static ReportedMsgs CreateSampleData(UserSession us)
         {
             ReportedMsgs msgs = new ReportedMsgs();
-
+            Test(us, msgs);
             AddQuestions(us, msgs);
-
+            
             return msgs;
+        }
+
+        public static void Test(UserSession us, ReportedMsgs msgs)
+        {
+            var srv = us.GetService<SFillDtoService>();
+            var dto = srv.GetSheelonToFill(1, 1);
         }
 
         public static void AddQuestions(UserSession us, ReportedMsgs msgs)

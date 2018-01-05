@@ -10,6 +10,12 @@ namespace Survey.Views
     #region View_QRelease
     public partial class View_QRelease : XPLiteObject
     {
+        public View_QRelease(Session prmSession)
+    : base(prmSession)
+        {
+
+        }
+
         int fId;
         public int Id
         {
@@ -95,6 +101,11 @@ namespace Survey.Views
     #region View_Sheelon
     public partial class View_Sheelon : XPLiteObject
     {
+        public View_Sheelon(Session prmSession): base(prmSession)
+        {
+
+        }
+
         int fId;
         public int Id
         {
@@ -198,7 +209,13 @@ namespace Survey.Views
     #region View_SQRelease
     public partial class View_SQRelease : XPLiteObject
     {
+        public View_SQRelease(Session prmSession) : base(prmSession)
+        {
+
+        }
+
         int fId;
+        [Key]
         public int Id
         {
             get { return fId; }
@@ -276,6 +293,14 @@ namespace Survey.Views
             get { return frightanswer; }
             set { SetPropertyValue<int>(nameof(rightanswer), ref frightanswer, value); }
         }
+
+        int fqTypeId;
+        public int qTypeId
+        {
+            get { return fqTypeId; }
+            set { SetPropertyValue<int>(nameof(qTypeId), ref fqTypeId, value); }
+        }
+
         string ftextLong;
         public string textLong
         {
@@ -307,7 +332,12 @@ namespace Survey.Views
     #region View_QReleaseOption
     public partial class View_QReleaseOption : XPLiteObject
     {
+        public View_QReleaseOption(Session prmSession) : base(prmSession)
+        {
+
+        }
         int fId;
+        [Key]
         public int Id
         {
             get { return fId; }
@@ -319,6 +349,13 @@ namespace Survey.Views
             get { return fqReleaseId; }
             set { SetPropertyValue<int>(nameof(qReleaseId), ref fqReleaseId, value); }
         }
+        double fvalue;
+        public double value
+        {
+            get { return fvalue; }
+            set { SetPropertyValue<double>(nameof(value), ref fvalue, value); }
+        }
+
         int fsortOrder;
         public int sortOrder
         {
