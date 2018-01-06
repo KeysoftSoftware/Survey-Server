@@ -70,10 +70,11 @@ namespace Survey.BL.Routing
             srv.AddRoute("getEntityData", GetEntityData);
             srv.AddRoute("saveFormData", SaveFormData);
             srv.AddRoute("getOrgStructNode", GetOrgStructNode);
-
+            srv.AddRoute("getSheelonToFill", GetSheelonToFill);
         }
         #endregion
 
+        #region RunServiceFunction
         public static void RunServiceFunction(UserSession UserSession, APICall call)
         {
             var entityName = call.GetParameters<string>("entityName");
@@ -83,7 +84,7 @@ namespace Survey.BL.Routing
             Type type = ServiceUtils.GetTypeByName(entityTypeName);
             MethodInfo method = typeof(ServiceUtils).GetMethod("OnActivate");
             MethodInfo genericMethod = method.MakeGenericMethod(type);
-            genericMethod.Invoke(new RouteService(), new object[] { UserSession, call, methodName});
+            genericMethod.Invoke(new RouteService(), new object[] { UserSession, call, methodName });
         }
 
         public void OnActivate<T>(UserSession UserSession, APICall call, string methodName)
@@ -100,9 +101,18 @@ namespace Survey.BL.Routing
                 mi.Invoke(service, prm);
             }
         }
+        #endregion
 
 
         #region Calls
+
+        #region GetSheelonToFill
+        public static void GetSheelonToFill(UserSession userSession, APICall call)
+        {
+            var service = new SFillDtoService(userSession);
+            service.GetSheelonToFillCall(call);
+        }
+        #endregion
 
         #region GetOrgStructNode
         public static void GetOrgStructNode(UserSession userSession, APICall call)

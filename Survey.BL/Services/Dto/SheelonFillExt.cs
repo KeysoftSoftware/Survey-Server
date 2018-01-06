@@ -1,4 +1,5 @@
 ﻿using KF.Primitives.NonPersistent;
+using KF.Services;
 using Survey.BL.Services.Persistene;
 using Survey.Model;
 using Survey.Views;
@@ -13,7 +14,17 @@ namespace Survey.BL.Services.Dto
     #region SheelonFillDtoService
     public partial class SFillDtoService
     {
-        public TSFill GetSheelonToFill(int sheelonId, int respId, string langCode = "he")
+        public void GetSheelonToFillCall(APICall call)
+        {
+            var sheelonId = call.GetParameters<int>("sheelonId");
+            var respId = call.GetParameters<int>("respId");
+
+            var res = GetSheelonToFill(1, 1);
+            call.callResult.Add("data", res);
+            call.isSuccess = true;
+        }
+
+        private TSFill GetSheelonToFill(int sheelonId, int respId, string langCode = "he")
         {
             var ctx = DataManager.GetDBContext();
 
@@ -28,14 +39,14 @@ namespace Survey.BL.Services.Dto
             TSFill dto = new TSFill();
             dto.Id = 0;
             dto.name = sr.name;
-            dto.openning = "";
+            dto.openning = "זהו שאלון הבוחן את התחביבם שלכם.";
             dto.sReleaseId = sr.Id;
 
             TPage page = new TPage();
             dto.pages.Add(page);
 
             page.pageNo = 1;
-            page.name = "";
+            page.name = "עמוד 1";
 
             // get all questions
             var questions = ctx.GetAll<View_SQRelease>().Where(s => s.sReleaseId == sr.Id).OrderBy(s=> s.sortOrder);
