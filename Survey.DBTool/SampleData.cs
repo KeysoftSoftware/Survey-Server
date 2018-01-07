@@ -18,7 +18,7 @@ namespace Survey.DBTool
         public static ReportedMsgs CreateSampleData(UserSession us)
         {
             ReportedMsgs msgs = new ReportedMsgs();
-            Test(us, msgs);
+            //Test(us, msgs);
             AddQuestions(us, msgs);
             
             return msgs;
@@ -53,13 +53,13 @@ namespace Survey.DBTool
 
             // Question 1
             var q1 = GetQuestion(ctx, us, "Q1", "האם אתם אוהבים ספורט?", cat.Id, msgs);
-            var q1Release = GetQuestionRelease(ctx, us, q1.name, new QReleaseDto() { Code = "Q1R", fromDate = startDate, maxOptCount = 1, minSelections = 1, questionId = q1.Id, toDate = endDate }, msgs);
-            GetQReleaseOption(ctx, us, q1Release, optYes, 1, msgs);
+            var q1Release = GetQuestionRelease(ctx, us, q1.name, new QReleaseDto() { Code = "Q1R", qTypeId = 1, maxOptCount = 1, minSelections = 1, questionId = q1.Id, fromDate = startDate, toDate = endDate }, msgs);
             GetQReleaseOption(ctx, us, q1Release, optNo, 2, msgs);
+            GetQReleaseOption(ctx, us, q1Release, optYes, 1, msgs);
 
             // Question 2
             var q2 = GetQuestion(ctx, us, "Q2", "שאלת בחירה: בחירה שניה", cat.Id, msgs);
-            var q2Release = GetQuestionRelease(ctx, us, q2.name, new QReleaseDto() { Code = "Q2R", fromDate = startDate, maxOptCount = 3, minSelections = 1, questionId = q2.Id, toDate = endDate }, msgs);
+            var q2Release = GetQuestionRelease(ctx, us, q2.name, new QReleaseDto() { Code = "Q2R", qTypeId = 2,  maxOptCount = 3, minSelections = 1, questionId = q2.Id, fromDate = startDate, toDate = endDate }, msgs);
             GetQReleaseOption(ctx, us, q2Release, opt1, 1, msgs);
             GetQReleaseOption(ctx, us, q2Release, opt2, 2, msgs);
             GetQReleaseOption(ctx, us, q2Release, opt3, 3, msgs);
@@ -113,12 +113,13 @@ namespace Survey.DBTool
                 srvSQRelease.SaveInternal(sq, msgs);
                 us.FlushChanges();
 
+                // Hiding
                 var sqh = srvSheelonQHiding.CreateInternal();
                 sqh.hideFlag = true;
                 sqh.sheelonId = sheelon.Id;
                 sqh.sourceQuestionId = q1.Id;
                 sqh.targetQuestionId = q2.Id;
-                sqh.sourceQuestionAnswer = 2;
+                sqh.sourceQuestionAnswer = optNo.value;
                 srvSheelonQHiding.SaveInternal(sqh, msgs);
                 us.SaveChanges();
             }

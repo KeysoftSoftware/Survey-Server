@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dto.cs" />
+    <Compile Include="DtoExt.cs" />
     <Compile Include="DtosCommon.cs" />
     <Compile Include="ModelBase.cs" />
     <Compile Include="Persistent.cs" />

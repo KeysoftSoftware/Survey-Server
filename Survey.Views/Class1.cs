@@ -239,11 +239,11 @@ namespace Survey.Views
             get { return fsReleaseId; }
             set { SetPropertyValue<int>(nameof(sReleaseId), ref fsReleaseId, value); }
         }
-        int fqReleaseId;
-        public int qReleaseId
+        int fquestionId;
+        public int questionId
         {
-            get { return fqReleaseId; }
-            set { SetPropertyValue<int>(nameof(qReleaseId), ref fqReleaseId, value); }
+            get { return fquestionId; }
+            set { SetPropertyValue<int>(nameof(questionId), ref fquestionId, value); }
         }
         int fpageNo;
         public int pageNo

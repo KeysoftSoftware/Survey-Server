@@ -24,7 +24,7 @@ namespace Survey.BL.Services.Dto
             call.isSuccess = true;
         }
 
-        private TSFill GetSheelonToFill(int sheelonId, int respId, string langCode = "he")
+        public TSFill GetSheelonToFill(int sheelonId, int respId, string langCode = "he")
         {
             var ctx = DataManager.GetDBContext();
 
@@ -36,10 +36,12 @@ namespace Survey.BL.Services.Dto
 
             };
 
+            var hidings = ctx.GetAll<SQHiding>().Where(s => s.sheelonId == sr.sheelonId);
+
             TSFill dto = new TSFill();
             dto.Id = 0;
             dto.name = sr.name;
-            dto.openning = "זהו שאלון הבוחן את התחביבם שלכם.";
+            dto.openning = string.Format("{0} <strong>{1}</strong> {2}", "זהו שאלון אשר מלמד על", "התחביבים", "שלכם");
             dto.sReleaseId = sr.Id;
 
             TPage page = new TPage();
@@ -49,15 +51,16 @@ namespace Survey.BL.Services.Dto
             page.name = "עמוד 1";
 
             // get all questions
-            var questions = ctx.GetAll<View_SQRelease>().Where(s => s.sReleaseId == sr.Id).OrderBy(s=> s.sortOrder);
+            var questions = ctx.GetAll<View_SQRelease>().Where(s => s.sReleaseId == sr.Id).OrderBy(s => s.sortOrder);
 
-            foreach(var question in questions)
+            foreach (var question in questions)
             {
                 TQuestion questionDto = new TQuestion();
                 questionDto.FromQuestion(question);
+                questionDto.visible = true;
 
-                var options = ctx.GetAll<View_QReleaseOption>().Where(s => s.qReleaseId == question.qReleaseId).OrderBy(s => s.sortOrder);
-                foreach(var opt in options)
+                var options = ctx.GetAll<View_QReleaseOption>().Where(s => s.qReleaseId == question.Id).OrderBy(s => s.sortOrder);
+                foreach (var opt in options)
                 {
                     TQOption tQOption = new TQOption();
                     tQOption.FromOption(opt);
@@ -65,14 +68,25 @@ namespace Survey.BL.Services.Dto
                     questionDto.qOptions.Add(tQOption);
                 }
 
+                // hidings
+                var qHidings = hidings.Where(s => s.sourceQuestionId == question.Id);
+                foreach(var hide in qHidings)
+                {
+                    TQuestionHiding tHiding = new TQuestionHiding();
+                    tHiding.answer = hide.sourceQuestionAnswer;
+                    tHiding.targetQuestionId = hide.targetQuestionId;
+                    questionDto.hidings.Add(tHiding);
+                }
+
                 page.questions.Add(questionDto);
             }
 
             return dto;
         }
-    } 
+    }
     #endregion
 
+    #region TSFill
     public class TSFill : TBaseEntity
     {
         public TSFill()
@@ -87,7 +101,9 @@ namespace Survey.BL.Services.Dto
 
         public List<TPage> pages { get; set; }
     }
+    #endregion
 
+    #region TPage
     public class TPage
     {
         public TPage()
@@ -98,7 +114,8 @@ namespace Survey.BL.Services.Dto
         public string name { get; set; }
 
         public List<TQuestion> questions { get; set; }
-    }
+    } 
+    #endregion
 
     public class TQuestion : TBaseEntity
     {
@@ -106,10 +123,11 @@ namespace Survey.BL.Services.Dto
         {
             texts = new QTextDto();
             qOptions = new List<TQOption>();
+            hidings = new List<TQuestionHiding>();
         }
-        public int qReleaseId { get; set; }
+        public int questionId { get; set; }
+        public bool visible { get; set; }
 
-          
         public bool isMandatory { get; set; }
         public int sortOrder { get; set; }
 
@@ -122,9 +140,12 @@ namespace Survey.BL.Services.Dto
         // answer
         public List<object> anserValue { get; set; }
 
+        public List<TQuestionHiding> hidings { get; set; }
+
         public void FromQuestion(View_SQRelease sqr)
         {
-            qReleaseId = sqr.qReleaseId;
+            Id = sqr.Id;
+            questionId = sqr.questionId;
             isMandatory = sqr.isMandatory;
             sortOrder = sqr.sortOrder;
             texts = new QTextDto() { text = sqr.text, textLong = sqr.textLong };
@@ -132,6 +153,8 @@ namespace Survey.BL.Services.Dto
             minSelections = sqr.minSelections;
             qTypeId = sqr.qTypeId;
         }
+
+
     }
     public class TQOption : TBaseEntity
     {
@@ -148,5 +171,11 @@ namespace Survey.BL.Services.Dto
             value = opt.value;
         }
 
+    }
+
+    public class TQuestionHiding
+    {
+        public double answer { get; set; }
+        public int targetQuestionId { get; set; }
     }
 }

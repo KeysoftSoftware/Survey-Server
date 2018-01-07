@@ -61,17 +61,17 @@ namespace Survey.DBTool
                 UpdateSchema();
 
 
-                //var str = System.IO.File.ReadAllText("../../All.sql");
+                var str = System.IO.File.ReadAllText("../../All.sql");
 
-                //string[] arr = str.Split(';');
+                string[] arr = str.Split(';');
 
-                //foreach (string cmd in arr)
-                //{
-                //    var strtemp = cmd.Replace("\r", " ");
-                //    strtemp = strtemp.Replace("\n", " ");
+                foreach (string cmd in arr)
+                {
+                    var strtemp = cmd.Replace("\r", " ");
+                    strtemp = strtemp.Replace("\n", " ");
 
-                //    int res = XpoDefault.Session.ExecuteNonQuery(strtemp);
-                //}
+                    int res = XpoDefault.Session.ExecuteNonQuery(strtemp);
+                }
 
 
 
