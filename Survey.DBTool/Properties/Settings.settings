@@ -6,7 +6,7 @@
       <Value Profile="(Default)">SurveyDB</Value>
     </Setting>
     <Setting Name="server" Type="System.String" Scope="User">
-      <Value Profile="(Default)">ELIS-DEV\SQL2008R2</Value>
+      <Value Profile="(Default)">localhost</Value>
     </Setting>
   </Settings>
 </SettingsFile>
