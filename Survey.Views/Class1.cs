@@ -407,4 +407,37 @@ namespace Survey.Views
     }
 
     #endregion
+
+
+    #region View_Question
+    [NonPersistent]
+    public partial class View_Question : XPLiteObject
+    {
+        int fId;
+        public int Id
+        {
+            get { return fId; }
+            set { SetPropertyValue<int>(nameof(Id), ref fId, value); }
+        }
+        string fCode;
+        public string Code
+        {
+            get { return fCode; }
+            set { SetPropertyValue<string>(nameof(Code), ref fCode, value); }
+        }
+        string fcomment;
+        public string comment
+        {
+            get { return fcomment; }
+            set { SetPropertyValue<string>(nameof(comment), ref fcomment, value); }
+        }
+        string fname;
+        public string name
+        {
+            get { return fname; }
+            set { SetPropertyValue<string>(nameof(name), ref fname, value); }
+        }
+    } 
+    #endregion
+
 }

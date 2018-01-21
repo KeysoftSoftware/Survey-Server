@@ -42,4 +42,12 @@ FROM            dbo.SQRelease INNER JOIN
                          dbo.SRelease ON dbo.SQRelease.sReleaseId = dbo.SRelease.Id INNER JOIN
                          dbo.View_QRelease ON dbo.SQRelease.qReleaseId = dbo.View_QRelease.Id
 ;
+IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[View_Question]'))
+DROP VIEW [dbo].[View_Question]
+;
+CREATE VIEW [dbo].[View_Question]
+AS
+SELECT        Id, Code, comment, name
+FROM            dbo.Question
+;
 
