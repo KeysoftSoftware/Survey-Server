@@ -1,0 +1,26 @@
+﻿{
+  "colCount": 4,
+  "rtlEnabled": true,
+  "items": [
+    {
+      "itemType": "simple",
+      "dataField": "name",
+      "colSpan": 2,
+      "label": { "text": "name" }
+    },
+    {
+      "itemType": "empty",
+      "colSpan": 2
+    },
+    {
+      "itemType": "simple",
+      "dataField": "comment",
+      "colSpan": 2,
+      "label": { "text": "comment" }
+    },
+    {
+      "itemType": "empty",
+      "colSpan": 2
+    }
+  ]
+}

@@ -30,6 +30,7 @@ namespace Survey.BL
             // initialize the XPO dictionary
             _XPDictionary.GetDataStoreSchema(typeof(Model.User).Assembly);
             _XPDictionary.GetDataStoreSchema(typeof(Views.View_Sheelon).Assembly);
+            _XPDictionary.GetDataStoreSchema(typeof(Views.View_Question).Assembly);
 
             // create a ThreadSafeDataLayer and store it in the XpoDefault.DataLayer static property
             DevExpress.Xpo.XpoDefault.DataLayer = new DevExpress.Xpo.ThreadSafeDataLayer(_XPDictionary, store);

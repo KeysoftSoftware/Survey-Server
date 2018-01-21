@@ -410,10 +410,16 @@ namespace Survey.Views
 
 
     #region View_Question
-    [NonPersistent]
+  
     public partial class View_Question : XPLiteObject
     {
+        public View_Question(Session prmSession) : base(prmSession)
+        {
+
+        }
+
         int fId;
+        [Key]
         public int Id
         {
             get { return fId; }

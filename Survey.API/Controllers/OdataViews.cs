@@ -16,11 +16,12 @@ namespace Survey.API.Controllers
         [EnableQuery]
         public IQueryable<View_Sheelon> GetView_Sheelon()
         {
-            var us =  base.UserSession;
+            var us = base.UserSession;
             if (us.Env.user == null) return null;
             var ctx = BL.DataManager.GetDBContext();
             return ctx.GetAll<View_Sheelon>();
         }
+
 
         // GET: odata/View_Employee(5)
         //[EnableQuery]
@@ -31,5 +32,17 @@ namespace Survey.API.Controllers
 
     }
 
-   
+    public class View_QuestionController : BaseODataController
+    {
+        [EnableQuery]
+        public IQueryable<View_Question> GetView_Question()
+        {
+
+            var us = base.UserSession;
+            if (us.Env.user == null) return null;
+            var ctx = BL.DataManager.GetDBContext();
+            var res =  ctx.GetAll<View_Question>();
+            return res;
+        }
+    }
 }

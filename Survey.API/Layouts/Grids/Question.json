@@ -1,0 +1,21 @@
+﻿{
+  "columns": [
+    {
+      "caption": "זיהוי",
+      "dataField": "Id",
+      "dataType": "number",
+      "width": "100"
+    },
+    {
+      "caption": "שם",
+      "dataField": "name",
+      "allowEditing": true,
+      "isLink": true
+    },
+    {
+      "caption": "הערה",
+      "dataField": "comment",
+      "allowEditing": true
+    }
+  ]
+}
