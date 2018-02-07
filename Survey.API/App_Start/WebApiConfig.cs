@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web.Http;
 using System.Web.Http.OData.Builder;
 using System.Web.Http.OData.Extensions;
+using static Survey.Model.Combos;
 
 namespace Survey.API
 {
@@ -30,6 +31,7 @@ namespace Survey.API
             builder.EntitySet<View_Question>("View_Question");
 
             builder.EntitySet<LOVDto>("LOVDto");
+            builder.EntitySet<TDs>("TDs");
 
             config.Routes.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
         }

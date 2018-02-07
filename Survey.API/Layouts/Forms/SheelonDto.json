@@ -14,7 +14,7 @@
     },
     {
       "itemType": "simple",
-      "editorType": "dxDateBox",
+      //"editorType": "dxDateBox",
       "dataField": "openning",
       "colSpan": 2,
       "label": { "text": "sheelon.openingDate" }

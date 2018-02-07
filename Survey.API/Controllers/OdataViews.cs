@@ -19,7 +19,8 @@ namespace Survey.API.Controllers
             var us = base.UserSession;
             if (us.Env.user == null) return null;
             var ctx = BL.DataManager.GetDBContext();
-            return ctx.GetAll<View_Sheelon>();
+            var res = ctx.GetAll<View_Sheelon>();
+            return res;
         }
 
 

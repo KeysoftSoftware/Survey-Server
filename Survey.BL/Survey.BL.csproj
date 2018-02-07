@@ -81,6 +81,8 @@
     <Compile Include="Services\Dto\CommonServices.cs" />
     <Compile Include="Services\Dto\GeneratedServices.cs" />
     <Compile Include="Services\Dto\OrgStructDtoService.cs" />
+    <Compile Include="Services\Dto\QuestionExt.cs" />
+    <Compile Include="Services\Dto\SheelonExt.cs" />
     <Compile Include="Services\Dto\SheelonFillExt.cs" />
     <Compile Include="Services\Forms\FormsService.cs" />
     <Compile Include="Services\Grids\GridsService.cs" />

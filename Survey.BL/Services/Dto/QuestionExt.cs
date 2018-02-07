@@ -20,7 +20,7 @@ namespace Survey.BL.Services.Dto
             using (var ctx = DataManager.GetDBContext())
             {
                 var obj = ctx.GetById<Question>(id);
-                entity.From(obj);
+                entity.From(obj); 
             }
 
         } 
@@ -59,6 +59,10 @@ namespace Survey.BL.Services.Dto
             var dto = inst.data["dto"] as QuestionDto;
             string[] required = { QuestionDto.Fields.name}; // check mandatory fields
             Validations.Validate_Required(dto, required, msgs);
+            if (msgs.hasAnyError)
+            {
+                inst.Cancel = true;
+            }
         }
 
         #endregion

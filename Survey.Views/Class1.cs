@@ -107,6 +107,7 @@ namespace Survey.Views
         }
 
         int fId;
+        [Key]
         public int Id
         {
             get { return fId; }

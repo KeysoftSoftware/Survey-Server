@@ -15,7 +15,8 @@
     {
       "itemType": "simple",
       "dataField": "comment",
-      "colSpan": 2,
+      "placeholder": "500px",
+      "colSpan": 4,
       "label": { "text": "comment" }
     },
     {

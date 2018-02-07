@@ -1,4 +1,6 @@
-﻿using KF.Services;
+﻿using KF.Primitives;
+using KF.Services;
+using KF.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,5 +30,26 @@ namespace Survey.BL.Services.Grids
             call.isSuccess = true;
         }
         #endregion
+
+
+        #region OnAfterLoadLayout
+        protected override void OnAfterLoadLayout(string key, GridLayout layout, IAPICall call)
+        {
+            if (key == "sheelon")
+            {
+                var ctx = DataManager.GetDBContext();
+
+                //var existCol = layout.columns.Where(s => s.dataField == "Code").FirstOrDefault();
+                //if (existCol == null)
+                    var dgc = new dataGridColumn("F1");
+                    dgc.caption = "F1";
+                    //dgc.allowEditing = true;
+                    layout.columns.Add(dgc);
+            }
+            base.OnAfterLoadLayout(key, layout, call);
+        }
+        #endregion
+
+
     }
 }

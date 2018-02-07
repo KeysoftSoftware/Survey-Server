@@ -14,6 +14,40 @@ namespace Survey.BL.Services.Dto
     #region SheelonDtoService
     public partial class SheelonDtoService
     {
+
+        public override IFormLayout OnAfterLoadLayout(IFormLayout layout, IAPICall call)
+        {
+
+            var ctx = DataManager.GetDBContext();
+
+            //var dgc = new IFormItem("F1");
+            //dgc.caption = "F1";
+            //dgc.allowEditing = true;
+
+            layout.items.AddSelect("F1", "F1label");
+
+            var items = layout.items as KF.Primitives.ControlsList;
+            var item = KF.Services.DynamicFormService.findFormItem(items, "F1");
+            item.editorOptions["dataSourceName"] = "TDs";
+            item.editorOptions["valueExpr"] = "name";
+            item.editorOptions["displayExpr"] = "name";
+
+            return base.OnAfterLoadLayout(layout, call);
+        }
+
+        #region OnLoadNonPersistentEntity
+        protected override void OnLoadNonPersistentEntity(int id, string code, SheelonDto entity)
+        {
+            using (var ctx = DataManager.GetDBContext())
+            {
+                var obj = ctx.GetById<Sheelon>(id);
+                entity.From(obj);
+            }
+
+        }
+        #endregion
+
+
         #region OnSaveNonPersistentEntity
         protected override void OnSaveNonPersistentEntity(SheelonDto entity, IReportedMsgs msgs)
         {
@@ -24,7 +58,7 @@ namespace Survey.BL.Services.Dto
 
                 var ap = new ActionPipe<PipeContainer>(container, _UserSession, "", msgs);
                 ap.AddInstruction(ValidateEntry);
-                ap.AddInstruction(AddSheelon);
+                ap.AddInstruction(SaveEntry);
                 var result = ap.Process();
                 if (!result)
                 {
@@ -49,17 +83,17 @@ namespace Survey.BL.Services.Dto
             var dto = inst.data["dto"] as SheelonDto;
         }
 
-        private void AddSheelon(Instruction<PipeContainer> inst)
+        private void SaveEntry(Instruction<PipeContainer> inst)
         {
             var msgs = inst.Msgs;
             var dto = inst.data["dto"] as SheelonDto;
-            var srvSheelon = _UserSession.GetService<SheelonService>();
+            var srv = _UserSession.GetService<SheelonService>();
 
-            var obj = srvSheelon.CreateInternal();
+            var obj = srv.LoadInternal(dto.Id); // if id == 0 then srv do create internal
 
             dto.To(obj);
 
-            srvSheelon.SaveInternal(obj, msgs);
+            srv.SaveInternal(obj, msgs);
 
             if (msgs.hasAnyError)
             {
@@ -67,19 +101,19 @@ namespace Survey.BL.Services.Dto
                 return;
             }
 
-            _UserSession.FlushChanges();
+            _UserSession.SaveChanges();
             dto.Id = obj.Id;
-        } 
+        }
         #endregion
 
     }
     #endregion
 
     #region SheelonReleaseDtoService
-    public partial class SheelonReleaseDtoService
+    public partial class SReleaseDtoService
     {
         #region OnSaveNonPersistentEntity
-        protected override void OnSaveNonPersistentEntity(SheelonReleaseDto entity, IReportedMsgs msgs)
+        protected override void OnSaveNonPersistentEntity(SReleaseDto entity, IReportedMsgs msgs)
         {
             try
             {
@@ -106,14 +140,14 @@ namespace Survey.BL.Services.Dto
         private void ValidateEntry(Instruction<PipeContainer> inst)
         {
             var msgs = inst.Msgs;
-            var dto = inst.data["dto"] as SheelonReleaseDto;
+            var dto = inst.data["dto"] as SReleaseDto;
         }
 
         private void SaveEntry(Instruction<PipeContainer> inst)
         {
             var msgs = inst.Msgs;
-            var dto = inst.data["dto"] as SheelonReleaseDto;
-            var srv = _UserSession.GetService<SheelonReleaseService>();
+            var dto = inst.data["dto"] as SReleaseDto;
+            var srv = _UserSession.GetService<SReleaseService>();
 
             var obj = srv.CreateInternal();
 
@@ -129,125 +163,127 @@ namespace Survey.BL.Services.Dto
 
             _UserSession.SaveChanges();
             dto.Id = obj.Id;
-        } 
+        }
         #endregion
+
+
     }
     #endregion
 
-    #region SheelonQuestionDtoService
-    public partial class SheelonQuestionDtoService
-    {
-        protected override void OnSaveNonPersistentEntity(SheelonQuestionDto entity, IReportedMsgs msgs)
-        {
-            try
-            {
-                var container = new PipeContainer();
-                container.Add("dto", entity);
+    //#region SheelonQuestionDtoService
+    //public partial class SQuestionDtoService
+    //{
+    //    protected override void OnSaveNonPersistentEntity(SQuestionDto entity, IReportedMsgs msgs)
+    //    {
+    //        try
+    //        {
+    //            var container = new PipeContainer();
+    //            container.Add("dto", entity);
 
-                var ap = new ActionPipe<PipeContainer>(container, _UserSession, "", msgs);
-                ap.AddInstruction(ValidateEntry);
-                ap.AddInstruction(SaveEntry);
-                var result = ap.Process();
-                if (!result)
-                {
-                    _UserSession.RollBack();
-                }
+    //            var ap = new ActionPipe<PipeContainer>(container, _UserSession, "", msgs);
+    //            ap.AddInstruction(ValidateEntry);
+    //            ap.AddInstruction(SaveEntry);
+    //            var result = ap.Process();
+    //            if (!result)
+    //            {
+    //                _UserSession.RollBack();
+    //            }
 
-            }
-            catch (Exception e)
-            {
-                // TODO: handle fall of ap
-                FL.Error(e);
-            }
-        }
+    //        }
+    //        catch (Exception e)
+    //        {
+    //            // TODO: handle fall of ap
+    //            FL.Error(e);
+    //        }
+    //    }
 
-        private void ValidateEntry(Instruction<PipeContainer> inst)
-        {
-            var msgs = inst.Msgs;
-            var dto = inst.data["dto"] as SheelonQuestionDto;
-        }
+    //    private void ValidateEntry(Instruction<PipeContainer> inst)
+    //    {
+    //        var msgs = inst.Msgs;
+    //        var dto = inst.data["dto"] as SheelonQuestionDto;
+    //    }
 
-        private void SaveEntry(Instruction<PipeContainer> inst)
-        {
-            var msgs = inst.Msgs;
-            var dto = inst.data["dto"] as SheelonQuestionDto;
-            var srv = _UserSession.GetService<SheelonQuestionService>();
+    //    private void SaveEntry(Instruction<PipeContainer> inst)
+    //    {
+    //        var msgs = inst.Msgs;
+    //        var dto = inst.data["dto"] as SheelonQuestionDto;
+    //        var srv = _UserSession.GetService<SheelonQuestionService>();
 
-            var obj = srv.CreateInternal();
+    //        var obj = srv.CreateInternal();
 
-            dto.To(obj);
+    //        dto.To(obj);
 
-            srv.SaveInternal(obj, msgs);
+    //        srv.SaveInternal(obj, msgs);
 
-            if (msgs.hasAnyError)
-            {
-                inst.Cancel = true;
-                return;
-            }
+    //        if (msgs.hasAnyError)
+    //        {
+    //            inst.Cancel = true;
+    //            return;
+    //        }
 
-            _UserSession.SaveChanges();
-            dto.Id = obj.Id;
-        }
-    }
-    #endregion
+    //        _UserSession.SaveChanges();
+    //        dto.Id = obj.Id;
+    //    }
+    //}
+    //#endregion
 
 
-    #region SheelonQHidingDtoService
-    public partial class SheelonQHidingDtoService
-    {
-        protected override void OnSaveNonPersistentEntity(SheelonQHidingDto entity, IReportedMsgs msgs)
-        {
-            try
-            {
-                var container = new PipeContainer();
-                container.Add("dto", entity);
+    //#region SheelonQHidingDtoService
+    //public partial class SheelonQHidingDtoService
+    //{
+    //    protected override void OnSaveNonPersistentEntity(SheelonQHidingDto entity, IReportedMsgs msgs)
+    //    {
+    //        try
+    //        {
+    //            var container = new PipeContainer();
+    //            container.Add("dto", entity);
 
-                var ap = new ActionPipe<PipeContainer>(container, _UserSession, "", msgs);
-                ap.AddInstruction(ValidateEntry);
-                ap.AddInstruction(SaveEntry);
-                var result = ap.Process();
-                if (!result)
-                {
-                    _UserSession.RollBack();
-                }
+    //            var ap = new ActionPipe<PipeContainer>(container, _UserSession, "", msgs);
+    //            ap.AddInstruction(ValidateEntry);
+    //            ap.AddInstruction(SaveEntry);
+    //            var result = ap.Process();
+    //            if (!result)
+    //            {
+    //                _UserSession.RollBack();
+    //            }
 
-            }
-            catch (Exception e)
-            {
-                // TODO: handle fall of ap
-                FL.Error(e);
-            }
-        }
+    //        }
+    //        catch (Exception e)
+    //        {
+    //            // TODO: handle fall of ap
+    //            FL.Error(e);
+    //        }
+    //    }
 
-        private void ValidateEntry(Instruction<PipeContainer> inst)
-        {
-            var msgs = inst.Msgs;
-            var dto = inst.data["dto"] as SheelonQHidingDto;
-        }
+    //    private void ValidateEntry(Instruction<PipeContainer> inst)
+    //    {
+    //        var msgs = inst.Msgs;
+    //        var dto = inst.data["dto"] as SheelonQHidingDto;
+    //    }
 
-        private void SaveEntry(Instruction<PipeContainer> inst)
-        {
-            var msgs = inst.Msgs;
-            var dto = inst.data["dto"] as SheelonQHidingDto;
-            var srv = _UserSession.GetService<SheelonQHidingService>();
+    //    private void SaveEntry(Instruction<PipeContainer> inst)
+    //    {
+    //        var msgs = inst.Msgs;
+    //        var dto = inst.data["dto"] as SheelonQHidingDto;
+    //        var srv = _UserSession.GetService<SheelonQHidingService>();
 
-            var obj = srv.CreateInternal();
+    //        var obj = srv.CreateInternal();
 
-            dto.To(obj);
+    //        dto.To(obj);
 
-            srv.SaveInternal(obj, msgs);
+    //        srv.SaveInternal(obj, msgs);
 
-            if (msgs.hasAnyError)
-            {
-                inst.Cancel = true;
-                return;
-            }
+    //        if (msgs.hasAnyError)
+    //        {
+    //            inst.Cancel = true;
+    //            return;
+    //        }
 
-            _UserSession.SaveChanges();
-            dto.Id = obj.Id;
-        }
-    }
-    #endregion
+    //        _UserSession.SaveChanges();
+    //        dto.Id = obj.Id;
+    //    }
+    //}
+    //#endregion
 
 
 }

@@ -130,6 +130,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BaseEditODataControler.cs" />
     <Compile Include="Controllers\BaseOdataController.cs" />
+    <Compile Include="Controllers\Combos.cs" />
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\EditableOdata.cs" />
     <Compile Include="Controllers\OdataViews.cs" />
@@ -154,6 +155,7 @@
     <Content Include="Layouts\Grids\LOV.json" />
     <Content Include="Layouts\Grids\Sheelon.json" />
     <Content Include="Layouts\Forms\SheelonDto.json" />
+    <Content Include="Layouts\Forms\QuestionDto.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
