@@ -20,6 +20,7 @@ namespace Survey.DBTool
             InitializeComponent();
             var settings = Survey.DBTool.Properties.Settings.Default;
             BL.AppSettings.DataContextConnectionSettings = new BL.ConnectionSettings() { DataSource = settings.server, InitialCatalog = settings.db };
+            
         }
 
 
@@ -30,7 +31,8 @@ namespace Survey.DBTool
             try
             {
                 Cursor = Cursors.WaitCursor;
-                string conn = DevExpress.Xpo.DB.MSSqlConnectionProvider.GetConnectionString(BL.AppSettings.DataContextConnectionSettings.DataSource, BL.AppSettings.DataContextConnectionSettings.InitialCatalog);
+                string conn = DevExpress.Xpo.DB.MSSqlConnectionProvider.GetConnectionString("esu.homeip.net", "tmurot", "Hwfdw2wCd", "SurveyDB");
+                    //(BL.AppSettings.DataContextConnectionSettings.DataSource, BL.AppSettings.DataContextConnectionSettings.InitialCatalog);
                 XpoDefault.DataLayer = XpoDefault.GetDataLayer(conn, DevExpress.Xpo.DB.AutoCreateOption.DatabaseAndSchema);
                 MessageBox.Show("Data Layer Created Successfully!!");
             }

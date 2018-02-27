@@ -6,7 +6,7 @@
       <Value Profile="(Default)">SurveyDB</Value>
     </Setting>
     <Setting Name="server" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">localhost</Value>
+      <Value Profile="(Default)">zzz</Value>
     </Setting>
   </Settings>
 </SettingsFile>

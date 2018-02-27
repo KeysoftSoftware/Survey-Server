@@ -22,7 +22,8 @@ namespace Survey.BL
             //string userid = UserID;//
             //string pw = PW;// RDXPBL.Properties.Settings.Default.PW;
 
-            string conn = DevExpress.Xpo.DB.MSSqlConnectionProvider.GetConnectionString(server,db);
+            string conn = DevExpress.Xpo.DB.MSSqlConnectionProvider.GetConnectionString("esu.homeip.net", "tmurot", "Hwfdw2wCd", "SurveyDB");
+            //(server,db);
             _XPDictionary = new ReflectionDictionary();
 
             DevExpress.Xpo.DB.IDataStore store = DevExpress.Xpo.XpoDefault.GetConnectionProvider(conn, DevExpress.Xpo.DB.AutoCreateOption.SchemaAlreadyExists);

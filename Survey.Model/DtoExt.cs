@@ -9,4 +9,10 @@ namespace Survey.Model
     class DtoExt
     {
     }
+    public partial class SheelonDto
+    {
+        public int P1 { get; set; }
+    }
+
+
 }

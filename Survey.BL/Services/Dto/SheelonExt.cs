@@ -24,10 +24,10 @@ namespace Survey.BL.Services.Dto
             //dgc.caption = "F1";
             //dgc.allowEditing = true;
 
-            layout.items.AddSelect("F1", "F1label");
+            layout.items.AddSelect("P1", "P1label");
 
             var items = layout.items as KF.Primitives.ControlsList;
-            var item = KF.Services.DynamicFormService.findFormItem(items, "F1");
+            var item = KF.Services.DynamicFormService.findFormItem(items, "P1");
             item.editorOptions["dataSourceName"] = "TDs";
             item.editorOptions["valueExpr"] = "name";
             item.editorOptions["displayExpr"] = "name";
@@ -42,6 +42,9 @@ namespace Survey.BL.Services.Dto
             {
                 var obj = ctx.GetById<Sheelon>(id);
                 entity.From(obj);
+                entity.name = "test";
+                entity.P1 = 3;
+
             }
 
         }
