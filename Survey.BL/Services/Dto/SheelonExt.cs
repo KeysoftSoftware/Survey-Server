@@ -29,7 +29,7 @@ namespace Survey.BL.Services.Dto
             var items = layout.items as KF.Primitives.ControlsList;
             var item = KF.Services.DynamicFormService.findFormItem(items, "P1");
             item.editorOptions["dataSourceName"] = "TDs";
-            item.editorOptions["valueExpr"] = "name";
+            item.editorOptions["valueExpr"] = "Id";
             item.editorOptions["displayExpr"] = "name";
 
             return base.OnAfterLoadLayout(layout, call);
