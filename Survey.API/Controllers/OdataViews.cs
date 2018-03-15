@@ -10,8 +10,6 @@ namespace Survey.API.Controllers
 {
     public class View_SheelonController : BaseODataController
     {
-
-
         // GET: odata/View_Sheelon
         [EnableQuery]
         public IQueryable<View_Sheelon> GetView_Sheelon()
@@ -22,16 +20,50 @@ namespace Survey.API.Controllers
             var res = ctx.GetAll<View_Sheelon>();
             return res;
         }
-
-
-        // GET: odata/View_Employee(5)
-        //[EnableQuery]
-        //public SingleResult<View_Sheelon> GetView_Sheelon([FromODataUri] int key)
-        //{
-        //    return SingleResult.Create(db.View_Sheelon.Where(view_Employee => view_Employee.Id == key));
-        //}
-
     }
+
+
+    public class View_HidingController : BaseODataController
+    {
+        // GET: odata/View_Hiding
+        [EnableQuery]
+        public IQueryable<View_Sheelon> GetView_Hiding()
+        {
+            var us = base.UserSession;
+            if (us.Env.user == null) return null;
+            var ctx = BL.DataManager.GetDBContext();
+            //var res = ctx.GetAll<View_Sheelon>();
+
+            //can i use some list?
+            //List<View_Sheelon> res = new List<View_Sheelon>();
+            //View_Sheelon v = new View_Sheelon(null);
+            //v.Id = 1;
+            //v.name = "test name";
+            //res.Add(v);
+            //return res.AsQueryable();
+
+            // string str = "EXEC GetRList_ '" + Env.userToken + "','" + JsonConvert.SerializeObject(settings) + "'";
+            string str = "SELECT * FROM hidingTest";
+            try
+            {
+                var result = ctx.ExecuteQuery<View_Sheelon>(str);
+                //var ddd = ctx.ExecuteQuery<t_questionnarie>(str).First();
+                return result;
+                //_UserSession.Response.data.Add(Constants.ResponseDataKeys.LIST, result.ToList());
+            }
+            catch (Exception e)
+            {
+                //FL.Error(e);
+                return null;
+            }
+
+
+
+
+
+        }
+    }
+
 
     public class View_QuestionController : BaseODataController
     {

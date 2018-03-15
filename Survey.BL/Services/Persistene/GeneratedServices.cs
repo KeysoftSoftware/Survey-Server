@@ -136,5 +136,14 @@ namespace Survey.BL.Services.Persistent
     }
     #endregion
 
+    #region HidingTest
+    public partial class HidingTestService : KF.Services.EntityService<HidingTest>
+    {
+        public HidingTestService(UserSession us) : base(us)
+        {
+        }
+    }
+    #endregion
+
 }
 

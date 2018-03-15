@@ -127,5 +127,14 @@ namespace Survey.BL.Services.Dto
     }
     #endregion
 
+    #region HidingTest
+    public partial class HidingTestDtoService : DynamicFormEntityService<HidingTestDto>
+    {
+        public HidingTestDtoService(UserSession us) : base(us)
+        {
+        }
+    }
+    #endregion
+
 }
 

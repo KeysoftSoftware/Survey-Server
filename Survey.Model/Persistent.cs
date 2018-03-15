@@ -1050,5 +1050,33 @@ namespace Survey.Model
 
     #endregion SQHiding
 
+    #region HidingTest
+    public partial class HidingTest : ModelBase
+    {
+
+        #region Constructor
+        public HidingTest(Session prmSession) : base(prmSession)
+        {
+        }
+        #endregion
+
+        #region Properties
+
+        #region name
+        private string _name;
+
+        public string name
+        {
+            get { return _name; }
+            set { SetValue<string>("name", ref _name, value); }
+        }
+        #endregion
+
+        #endregion
+
+    }
+
+    #endregion HidingTest
+
 }
 

@@ -156,6 +156,7 @@
     <Content Include="Layouts\Grids\Sheelon.json" />
     <Content Include="Layouts\Forms\SheelonDto.json" />
     <Content Include="Layouts\Forms\QuestionDto.json" />
+    <Content Include="Layouts\Grids\Hiding.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

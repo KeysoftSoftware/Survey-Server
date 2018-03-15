@@ -28,6 +28,7 @@ namespace Survey.API
 
             ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
             builder.EntitySet<View_Sheelon>("View_Sheelon");
+            builder.EntitySet<View_Sheelon>("View_Hiding");
             builder.EntitySet<View_Question>("View_Question");
 
             builder.EntitySet<LOVDto>("LOVDto");

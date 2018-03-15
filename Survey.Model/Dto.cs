@@ -433,5 +433,26 @@ namespace Survey.Model
 
     #endregion SQHiding
 
+    #region HidingTest
+    [KF.Primitives.NonPersist]
+    public partial class HidingTestDto : TBaseEntity<HidingTest>
+    {
+
+        #region Fields
+        public static class Fields
+        {
+            public static string name = "name";
+        }
+        #endregion
+
+        #region Properties
+        public string name { get; set; }
+
+        #endregion
+
+    }
+
+    #endregion HidingTest
+
 }
 

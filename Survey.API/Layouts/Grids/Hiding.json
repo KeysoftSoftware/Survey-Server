@@ -1,0 +1,13 @@
+﻿{
+  "columns": [
+    {
+      "caption": "hiding id",
+      "dataField": "Id"
+    },
+    {
+      "caption": "שם",
+      "dataField": "name",
+      "isLink": true
+    }
+  ]
+}
